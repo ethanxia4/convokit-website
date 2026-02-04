@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Features &amp; APIs - ConvoKit 4.0.0 documentation</title><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Contributors" href="contributors.html" /><link rel="prev" title="Datasets" href="datasets.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=14737038" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8787f4c3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Features &amp; APIs"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="index.html">
+      
+      
+      <strong>ConvoKit</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Features &amp; APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Features &amp; APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linguistic-coordination">Linguistic Coordination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#politeness-strategies">Politeness Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expected-conversational-context-framework">Expected Conversational Context Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hypergraph-conversation-representation">Hypergraph Conversation Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linguistic-diversity">Linguistic Diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#craft-conversational-forecasting">CRAFT: Conversational Forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redirection-and-utterance-likelihood">Redirection and Utterance Likelihood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pivotal-moment-measure">Pivotal Moment Measure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div><form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">ConvoKit</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Features &amp; APIs</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="features-apis">
+<h1>Features &amp; APIs<a class="headerlink" href="#features-apis" title="Link to this heading"></a></h1>
+<p>ConvoKit provides a comprehensive set of analysis tools for extracting conversational features and studying social phenomena. All features follow a scikit-learn-inspired interface.</p>
+<div class="feature-search-container">
+  <input type="text" id="feature-search" placeholder="Search features by name or tags..." />
+  <div class="tag-filters">
+    <span class="filter-label">Filter by category:</span>
+    <button class="tag-filter" data-tag="linguistic">Linguistic</button>
+    <button class="tag-filter" data-tag="social">Social</button>
+    <button class="tag-filter" data-tag="structural">Structural</button>
+    <button class="tag-filter" data-tag="prediction">Prediction</button>
+    <button class="tag-filter" data-tag="modeling">Modeling</button>
+    <button class="clear-filters">Clear Filters</button>
+  </div>
+</div>
+
+<div id="features-container"><section id="linguistic-coordination">
+<h2>Linguistic Coordination<a class="headerlink" href="#linguistic-coordination" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="linguistic,power,influence"><p>A measure of linguistic influence and relative power between individuals or groups based on function word usage.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Power dynamics analysis, influence measurement</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/coordination.html">coordination</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Echoes_of_power.html">Echoes of Power</a></p></li>
+<li><p><strong>Tags:</strong> linguistic, power, influence</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/coordination/examples.ipynb">Power balance in U.S. Supreme Court</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Coordination</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="n">coord</span> <span class="o">=</span> <span class="n">Coordination</span><span class="p">()</span>
+</span><span data-line="4"><span class="n">corpus</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div></section>
+<section id="politeness-strategies">
+<h2>Politeness Strategies<a class="headerlink" href="#politeness-strategies" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="linguistic,social,politeness"><p>Lexical and parse-based features that correlate with politeness and impoliteness in conversations.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Politeness analysis, request analysis, conflict detection</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/politenessStrategies.html">politenessStrategies</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Politeness.html">A Computational Approach to Politeness</a></p></li>
+<li><p><strong>Tags:</strong> linguistic, social, politeness</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/conversations-gone-awry/Conversations_Gone_Awry_Prediction.ipynb">Politeness in Wikipedia conflicts</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolitenessStrategies</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="n">ps</span> <span class="o">=</span> <span class="n">PolitenessStrategies</span><span class="p">()</span>
+</span><span data-line="4"><span class="n">corpus</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div></section>
+<section id="expected-conversational-context-framework">
+<h2>Expected Conversational Context Framework<a class="headerlink" href="#expected-conversational-context-framework" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="modeling,context,characterization"><p>A framework for characterizing utterances and terms based on their expected conversational context.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Question type derivation, dialog act classification, utterance characterization</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/expected_context_model.html">expected_context_model</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://tisjune.github.io/research/dissertation">Expected Context Framework</a></p></li>
+<li><p><strong>Tags:</strong> modeling, context, linguistic</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/parliament_demo.ipynb">Question types in British Parliament</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/switchboard_exploration_demo.ipynb">Switchboard dialog acts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/wiki_awry_demo.ipynb">Wikipedia discussions</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/scotus_orientation_demo.ipynb">Supreme Court orientations</a></p></li>
+</ul>
+</div></section>
+<section id="hypergraph-conversation-representation">
+<h2>Hypergraph Conversation Representation<a class="headerlink" href="#hypergraph-conversation-representation" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="structural,graph,patterns"><p>Extract structural features of conversations through hypergraph representation.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Conversation structure analysis, participation patterns, thread dynamics</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/hyperconvo.html">hyperconvo</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Patterns_of_participant_interactions.html">Patterns of Participant Interactions</a></p></li>
+<li><p><strong>Tags:</strong> structural, graph, patterns</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/hyperconvo/hyperconvo_demo.ipynb">Reddit hypergraph analysis</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">HyperConvo</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="n">hc</span> <span class="o">=</span> <span class="n">HyperConvo</span><span class="p">()</span>
+</span><span data-line="4"><span class="n">corpus</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div></section>
+<section id="linguistic-diversity">
+<h2>Linguistic Diversity<a class="headerlink" href="#linguistic-diversity" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="linguistic,diversity,development"><p>Compute linguistic diversity of individuals within and across conversations.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Voice development, linguistic adaptation, speaker characterization</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/speakerConvoDiversity.html">speakerConvoDiversity</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Finding_your_voice__linguistic_development.html">Finding Your Voice</a></p></li>
+<li><p><strong>Tags:</strong> linguistic, diversity, development</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/speaker-convo-attributes/speaker-convo-diversity-demo.ipynb">Diversity on ChangeMyView</a></p>
+</div></section>
+<section id="craft-conversational-forecasting">
+<h2>CRAFT: Conversational Forecasting<a class="headerlink" href="#craft-conversational-forecasting" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="prediction,neural,forecasting"><p>Neural model for forecasting future conversation outcomes (e.g., derailment into personal attacks) as they develop.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Real-time moderation, derailment prediction, outcome forecasting</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/forecaster.html">forecaster</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://arxiv.org/abs/1909.01362">Trouble on the Horizon</a></p></li>
+<li><p><strong>Tags:</strong> prediction, neural, machine-learning</p></li>
+</ul>
+<p><strong>Interactive notebooks:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1SH4iMEHdoH4IovN-b9QOSK4kG4DhAwmb">Full version (fine-tuning + inference)</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1GvICZN0VwZQSWw3pJaEVY-EQGoO-L5lH">Inference-only</a></p></li>
+</ul>
+</div></section>
+<section id="redirection-and-utterance-likelihood">
+<h2>Redirection and Utterance Likelihood<a class="headerlink" href="#redirection-and-utterance-likelihood" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="structural,modeling,flow"><p>Measure the extent to which utterances redirect conversational flow and compute utterance log-likelihoods given context.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Topic shift detection, conversational control, response predictability</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/redirectionAndUtteranceLikelihood.html">redirectionAndUtteranceLikelihood</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Redirection_in_Therapy.html">Conversational Redirection</a></p></li>
+<li><p><strong>Tags:</strong> structural, modeling, conversational-flow</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/redirection/redirectionDemo.ipynb">Redirection in Supreme Court</a></p>
+</div></section>
+<section id="pivotal-moment-measure">
+<h2>Pivotal Moment Measure<a class="headerlink" href="#pivotal-moment-measure" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="structural,prediction,critical-points"><p>Identify pivotal moments in conversations where outcomes may change.</p>
+<ul class="simple">
+<li><p><strong>Use cases:</strong> Critical moment detection, trajectory analysis, intervention timing</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/pivotal.html">pivotal</a></p></li>
+<li><p><strong>Tags:</strong> structural, prediction, turning-points</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/pivotal_framework/pivotal_demo.ipynb">Pivotal moments in conflicts</a></p>
+</div>
+
+</div></section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="datasets.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Datasets</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="contributors.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Contributors</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2025, Cornell NLP</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=3304f9e4"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/shibuya.js?v=c1cf1a6b"></script>
+      <script src="_static/custom.js?v=68b30c0e"></script></body>
+</html>

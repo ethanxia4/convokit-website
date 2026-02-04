@@ -1,0 +1,215 @@
+/* docs/source/_static/custom.css */
+
+/* Search container styling */
+.dataset-search-container,
+.feature-search-container {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+#dataset-search,
+#feature-search {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #2980b9;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s;
+}
+
+#dataset-search:focus,
+#feature-search:focus {
+    outline: none;
+    border-color: #1f5a7a;
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+}
+
+/* Tag filters */
+.tag-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: #555;
+    margin-right: 0.5rem;
+}
+
+.tag-filter {
+    padding: 6px 14px;
+    background: white;
+    border: 1px solid #2980b9;
+    color: #2980b9;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.tag-filter:hover {
+    background: #2980b9;
+    color: white;
+}
+
+.tag-filter.active {
+    background: #2980b9;
+    color: white;
+    font-weight: 600;
+}
+
+.clear-filters {
+    padding: 6px 14px;
+    background: #e74c3c;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.clear-filters:hover {
+    background: #c0392b;
+}
+
+/* Dataset and Feature cards */
+.dataset-card,
+.feature-card {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.dataset-card:hover,
+.feature-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #2980b9;
+}
+
+.dataset-card.hidden,
+.feature-card.hidden {
+    display: none;
+}
+
+.dataset-card h3,
+.feature-card h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.dataset-card ul,
+.feature-card ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.dataset-card li,
+.feature-card li {
+    margin: 0.5rem 0;
+}
+
+.dataset-card strong,
+.feature-card strong {
+    color: #2980b9;
+}
+
+.dataset-card a,
+.feature-card a {
+    color: #2980b9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dataset-card a:hover,
+.feature-card a:hover {
+    color: #1f5a7a;
+    text-decoration: underline;
+}
+
+/* Code blocks in cards */
+.dataset-card .highlight,
+.feature-card .highlight {
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .dataset-search-container,
+    .feature-search-container {
+        padding: 1rem;
+    }
+    
+    .tag-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .tag-filter,
+    .clear-filters {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dataset-card,
+    .feature-card {
+        padding: 1rem;
+    }
+}
+
+/* Enhanced typography */
+.dataset-card p:first-of-type,
+.feature-card p:first-of-type {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+/* Badge styling for tags */
+.tag-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 2px;
+    background: #ecf0f1;
+    color: #2c3e50;
+    border-radius: 3px;
+    font-size: 0.85rem;
+}
+
+/* Improved link buttons */
+.dataset-card .btn,
+.feature-card .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px;
+    background: #3498db;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.dataset-card .btn:hover,
+.feature-card .btn:hover {
+    background: #2980b9;
+    text-decoration: none;
+}
