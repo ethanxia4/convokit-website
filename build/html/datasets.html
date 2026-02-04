@@ -96,8 +96,7 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l2"><a class="reference internal" href="#npr-interview-2p-dataset-corpus">NPR Interview 2P Dataset Corpus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delidata-dataset-corpus">DeliData Dataset Corpus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#switchboard-dialog-act-corpus">Switchboard Dialog Act Corpus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stanford-politeness-corpus-wikipedia">Stanford Politeness Corpus - Wikipedia</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stanford-politeness-corpus-stack-exchange">Stanford Politeness Corpus - Stack Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stanford-politeness-corpus">Stanford Politeness Corpus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deception-in-diplomacy-conversations">Deception in Diplomacy Conversations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#group-affect-and-performance-gap-corpus">Group Affect and Performance (GAP) Corpus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wikipedia-articles-for-deletion-corpus">Wikipedia Articles for Deletion Corpus</a></li>
@@ -233,7 +232,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="reddit-corpus">
 <h2>Reddit Corpus<a class="headerlink" href="#reddit-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="large size, Reddit, online, asynchronous, timestamps"><p>Reddit conversations from over 900k subreddits, arranged by subreddit. A small subset sampled from 100 highly active subreddits is also available.</p>
+<div class="dataset-card" data-tags="large size, Reddit, online, asynchronous, timestamps"><p>Reddit conversations from over 900k subreddits, arranged by subreddit. A <a class="reference external" href="https://convokit.cornell.edu/documentation/reddit-small.html">small subset</a> sampled from 100 highly active subreddits is also available.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">subreddit-&lt;name_of_subreddit&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">reddit-corpus-small</span></code></p></li>
 <li><p><strong>Tags:</strong> large size, Reddit, online, asynchronous, timestamps</p></li>
@@ -242,7 +241,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="wikiconv-corpus">
 <h2>WikiConv Corpus<a class="headerlink" href="#wikiconv-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="large size, Wikipedia, online, asynchronous, timestamps, collaboration"><p>The full corpus of Wikipedia talk page conversations. Due to size, split by year.</p>
+<div class="dataset-card" data-tags="large size, Wikipedia, online, asynchronous, timestamps, collaboration"><p>The full corpus of Wikipedia talk page conversations, based on the reconstruction described in <a class="reference external" href="https://www.cs.cornell.edu/~cristian/index_files/wikiconv-conversation-corpus.pdf">this paper</a>. Note that due to the large size of the data, it is split up by year. We separately provide <a class="reference external" href="https://zissou.infosci.cornell.edu/convokit/datasets/wikiconv-corpus/blocks.json">block data retrieved directly from the Wikipedia block log</a>, , for reproducing the <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Recidivism_online_files/recidivism_online.pdf">Trajectories of Blocked Community Members</a> paper.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">wikiconv-&lt;year&gt;</span></code></p></li>
 <li><p><strong>Tags:</strong> large size, Wikipedia, online, asynchronous, timestamps, collaboration</p></li>
@@ -252,7 +251,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="chromium-conversations-corpus">
 <h2>Chromium Conversations Corpus<a class="headerlink" href="#chromium-conversations-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="large size, online, asynchronous, utterance labels, speaker info, timestamps, collaboration, short conversations, work"><p>Conversations from developers reviewing proposed code changes in the Chromium project.</p>
+<div class="dataset-card" data-tags="large size, online, asynchronous, utterance labels, speaker info, timestamps, collaboration, short conversations, work"><p>A collection of almost 1.5 million conversations and 2.8 million comments posted by developers reviewing proposed code changes in the Chromium project.</p>
 <ul class="simple">
 <li><p><strong>Size:</strong> 1.5 million conversations, 2.8 million comments</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">chromium-corpus</span></code></p></li>
@@ -262,7 +261,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="tennis-interviews">
 <h2>Tennis Interviews<a class="headerlink" href="#tennis-interviews" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="short conversations, interviews, sports, speaker info"><p>Transcripts of tennis singles post-match press conferences for major tournaments (2007-2015).</p>
+<div class="dataset-card" data-tags="short conversations, interviews, sports, speaker info"><p>Transcripts for tennis singles post-match press conferences for major tournaments between 2007 to 2015 (6,467 post-match press conferences).</p>
 <ul class="simple">
 <li><p><strong>Size:</strong> 6,467 post-match press conferences</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">tennis-corpus</span></code></p></li>
@@ -272,7 +271,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="winning-arguments-corpus">
 <h2>Winning Arguments Corpus<a class="headerlink" href="#winning-arguments-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="large size, Reddit, asynchronous, online, outcome labels, debate, persuasion, various topics"><p>ChangeMyView conversations with delta (success) information for convincing arguments.</p>
+<div class="dataset-card" data-tags="large size, Reddit, asynchronous, online, outcome labels, debate, persuasion, various topics"><p>A metadata-rich subset of conversations made in the r/ChangeMyView subreddit between 1 Jan 2013 - 7 May 2015, with information on the delta (success) of a speaker’s utterance in convincing the poster.</p>
 <ul class="simple">
 <li><p><strong>Period:</strong> Jan 1, 2013 - May 7, 2015</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">winning-args-corpus</span></code></p></li>
@@ -282,7 +281,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="coarse-discourse-corpus">
 <h2>Coarse Discourse Corpus<a class="headerlink" href="#coarse-discourse-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="medium size, Reddit, online, asynchronous, utterance labels, various topics"><p>Reddit conversations manually annotated with discourse act labels.</p>
+<div class="dataset-card" data-tags="medium size, Reddit, online, asynchronous, utterance labels, various topics"><p>A subset of Reddit conversations that have been manually annotated with discourse act labels.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">reddit-coarse-discourse-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> medium size, Reddit, online, asynchronous, utterance labels, various topics</p></li>
@@ -291,7 +290,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="persuasion-for-good-corpus">
 <h2>Persuasion For Good Corpus<a class="headerlink" href="#persuasion-for-good-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="medium size, online, synchronous, speaker info, utterance labels, outcome labels, persuasion, dyadic, medium conversations"><p>Online conversations where one participant tries to convince another to donate to charity.</p>
+<div class="dataset-card" data-tags="medium size, online, synchronous, speaker info, utterance labels, outcome labels, persuasion, dyadic, medium conversations"><p>A collection of online conversations generated by Amazon Mechanical Turk workers, where one participant (the persuader) tries to convince the other (the persuadee) to donate to a charity.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">persuasionforgood-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> medium size, online, synchronous, speaker info, utterance labels, outcome labels, persuasion, dyadic, medium conversations</p></li>
@@ -300,7 +299,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="intelligence-squared-debates-corpus">
 <h2>Intelligence Squared Debates Corpus<a class="headerlink" href="#intelligence-squared-debates-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, in person, summaries, media, utterance labels, timestamps, outcome labels, debate, long conversations, various topics, politics"><p>Transcripts of Intelligence Squared Debates.</p>
+<div class="dataset-card" data-tags="small size, in person, summaries, media, utterance labels, timestamps, outcome labels, debate, long conversations, various topics, politics"><p>Transcripts of debates held as part of Intelligence Squared Debates.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">iq2-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> small size, in person, summaries, media, utterance labels, timestamps, outcome labels, debate, long conversations, various topics, politics</p></li>
@@ -309,7 +308,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="friends-corpus">
 <h2>Friends Corpus<a class="headerlink" href="#friends-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="medium size, fictional, group, media, utterance labels, sarcasm"><p>All conversations from 10 seasons of the TV sitcom Friends (1990s).</p>
+<div class="dataset-card" data-tags="medium size, fictional, group, media, utterance labels, sarcasm"><p>A collection of all the conversations that occurred over 10 seasons of Friends, a popular American TV sitcom that ran in the 1990s.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">friends-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> medium size, fictional, group, media, utterance labels, sarcasm</p></li>
@@ -318,7 +317,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="federal-open-market-committee-fomc-corpus">
 <h2>Federal Open Market Committee (FOMC) Corpus<a class="headerlink" href="#federal-open-market-committee-fomc-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, in person, timestamps, institutional, speaker info, utterance labels, politics, financial, long conversations, group"><p>Transcripts of Federal Reserve FOMC meetings (1977-2008).</p>
+<div class="dataset-card" data-tags="small size, in person, timestamps, institutional, speaker info, utterance labels, politics, financial, long conversations, group"><p>Transcripts of recurring meetings of the Federal Reserve’s Open Market Committee (FOMC), where important aspects of U.S. monetary policy are decided, covering the period 1977-2008.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">fomc-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> small size, in person, timestamps, institutional, speaker info, utterance labels, politics, financial, long conversations</p></li>
@@ -327,7 +326,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="npr-interview-2p-dataset-corpus">
 <h2>NPR Interview 2P Dataset Corpus<a class="headerlink" href="#npr-interview-2p-dataset-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="large size, in person, dyadic, media, Q&A, interviews, various topics"><p>Conversations between NPR show hosts and guests.</p>
+<div class="dataset-card" data-tags="large size, in person, dyadic, media, Q&A, interviews, various topics"><p>This corpus contains conversations between NPR show hosts and their guests.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">npr-2p-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> large size, in person, dyadic, media, Q&amp;A, interviews, various topics</p></li>
@@ -336,7 +335,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="delidata-dataset-corpus">
 <h2>DeliData Dataset Corpus<a class="headerlink" href="#delidata-dataset-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="group, synchronous, medium size, summaries, outcome labels, problem solving, collaboration"><p>Multi-party problem-solving conversations with team performance information.</p>
+<div class="dataset-card" data-tags="group, synchronous, medium size, summaries, outcome labels, problem solving, collaboration"><p>This corpus contains conversations in multi-party problem-solving contexts, containing information about group discussions and team performance.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">deli-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> group, synchronous, medium size, summaries, outcome labels, problem solving, collaboration</p></li>
@@ -345,34 +344,34 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="switchboard-dialog-act-corpus">
 <h2>Switchboard Dialog Act Corpus<a class="headerlink" href="#switchboard-dialog-act-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="synchronous, dyadic, medium size, speaker info, summaries, various topics, debate"><p>1,155 five-minute telephone conversations annotated with speech act tags.</p>
+<div class="dataset-card" data-tags="synchronous, dyadic, medium size, speaker info, summaries, various topics, debate"><p>A collection of 1,155 five-minute telephone conversations between two participants, annotated with speech act tags.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">switchboard-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> synchronous, dyadic, medium size, speaker info, summaries, various topics, debate</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/switchboard.html">Documentation</a></p></li>
 </ul>
 </div></section>
-<section id="stanford-politeness-corpus-wikipedia">
-<h2>Stanford Politeness Corpus - Wikipedia<a class="headerlink" href="#stanford-politeness-corpus-wikipedia" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="medium size, asynchronous, Wikipedia, utterance labels, online, short conversations, politeness"><p>Wikipedia and Stackrequests with politeness annotations.</p>
+<section id="stanford-politeness-corpus">
+<h2>Stanford Politeness Corpus<a class="headerlink" href="#stanford-politeness-corpus" title="Link to this heading"></a></h2>
+<div class="dataset-card" data-tags="medium size, asynchronous, Wikipedia, Stack Exchange, utterance labels, online, short conversations, politeness"><p>Two collections of requests (from Wikipedia and Stack Exchange respectively) with politeness annotations</p>
+<p><strong>Stanford Politeness (Wikipedia):</strong> A collection of requests from Wikipedia Talk pages, annotated with politeness (4,353 utteranecs).</p>
 <ul class="simple">
+<li><p><strong>Size:</strong> 4,353 utterances</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">wikipedia-politeness-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> medium size, asynchronous, Wikipedia, utterance labels, online, short conversations, politeness</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/wiki_politeness.html">Documentation</a></p></li>
 </ul>
-</div></section>
-<section id="stanford-politeness-corpus-stack-exchange">
-<h2>Stanford Politeness Corpus - Stack Exchange<a class="headerlink" href="#stanford-politeness-corpus-stack-exchange" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="medium size, asynchronous, Stack Exchange, utterance labels, online, politeness"><p>Stack Exchange requests with politeness annotations.</p>
+<p><strong>Stanford Politeness (Stack Exchange):</strong> A collection of requests from Stack Exchange, annotated with politeness (6,603 utteranecs).</p>
 <ul class="simple">
+<li><p><strong>Size:</strong> 6,603 utterances</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">stack-exchange-politeness-corpus</span></code></p></li>
-<li><p><strong>Tags:</strong> medium size, asynchronous, Stack Exchange, utterance labels, online, politeness</p></li>
+<li><p><strong>Tags:</strong> medium size, asynchronous, Stack Exchange, utterance labels, online, short conversations, politeness</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/stack_politeness.html">Documentation</a></p></li>
 </ul>
 </div></section>
 <section id="deception-in-diplomacy-conversations">
 <h2>Deception in Diplomacy Conversations<a class="headerlink" href="#deception-in-diplomacy-conversations" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="medium size, group, speaker info, utterance labels, negotiation, medium conversations, persuasion, collaboration, deception"><p>17,000+ messages with intended and perceived deception labels.</p>
+<div class="dataset-card" data-tags="medium size, group, speaker info, utterance labels, negotiation, medium conversations, persuasion, collaboration, deception"><p>Conversational dataset with intended and perceived deception labels. Over 17,000 messages annotated by the sender for their intended truthfulness and by the receiver for their perceived truthfulness.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">diplomacy-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> medium size, group, speaker info, utterance labels, negotiation, medium conversations, persuasion, collaboration, deception</p></li>
@@ -381,7 +380,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="group-affect-and-performance-gap-corpus">
 <h2>Group Affect and Performance (GAP) Corpus<a class="headerlink" href="#group-affect-and-performance-gap-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="institution, small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration"><p>28 group meetings (84 participants) in decision-making exercises.</p>
+<div class="dataset-card" data-tags="institution, small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration"><p>A conversational dataset comprising group meetings of two to four participants that deliberate in a group decision-making exercise. This dataset contains 28 group meetings with a total of 84 participants.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">gap-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> institution, small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration</p></li>
@@ -390,7 +389,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="wikipedia-articles-for-deletion-corpus">
 <h2>Wikipedia Articles for Deletion Corpus<a class="headerlink" href="#wikipedia-articles-for-deletion-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="Wikipedia, large size, online, asynchronous, speaker info, utterance labels, outcome labels, timestamps, debate"><p>Wikipedia’s Articles for Deletion editor debates (2005-2018).</p>
+<div class="dataset-card" data-tags="Wikipedia, large size, online, asynchronous, speaker info, utterance labels, outcome labels, timestamps, debate"><p>A collection of Wikipedia’s Articles for Deletion editor debates that occurred between January 1, 2005 and December 31, 2018. This corpus contains about 3,200,000 contributions by approximately 150,000 Wikipedia editors across almost 400,000 debates.</p>
 <ul class="simple">
 <li><p><strong>Size:</strong> ~3.2M contributions, ~150K editors, ~400K debates</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">wiki-articles-for-deletion-corpus</span></code></p></li>
@@ -400,7 +399,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="casino-corpus">
 <h2>CaSiNo Corpus<a class="headerlink" href="#casino-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="medium size, speaker info, utterance labels, negotiation, collaboration"><p>1,030 negotiation dialogues about campsite resource allocation.</p>
+<div class="dataset-card" data-tags="medium size, speaker info, utterance labels, negotiation, collaboration"><p>CaSiNo (stands for CampSite Negotiations) is a novel dataset of 1030 negotiation dialogues. Two participants take the role of campsite neighbors and negotiate for Food, Water, and Firewood packages, based on their individual preferences and requirements.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">casino-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> medium size, speaker info, utterance labels, negotiation, collaboration</p></li>
@@ -409,7 +408,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="spolin-corpus">
 <h2>SPOLIN Corpus<a class="headerlink" href="#spolin-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="media, large size, online, synchronous, utterance labels"><p>68,000+ “Yes, and” improvisation utterance pairs from podcasts and movies.</p>
+<div class="dataset-card" data-tags="media, large size, online, synchronous, utterance labels"><p>Selected Pairs of Learnable ImprovisatioN (SPOLIN) is a collection of more than 68,000 “Yes, and” type utterance pairs extracted from the long-form improvisation podcast Spontaneanation by Paul F. Tompkins, the Cornell Movie-Dialogs Corpus, and the SubTle corpus.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">spolin-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> media, large size, online, synchronous, utterance labels, short conversations, various topics</p></li>
@@ -434,7 +433,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="unintended-offense-corpus">
 <h2>Unintended Offense Corpus<a class="headerlink" href="#unintended-offense-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>Fora corpus is a dataset of 262 annotated transcripts of multi-person facilitated dialogues regarding issues like education, elections, and public health, primarily through the sharing of personal experience. The corpus is available by request from the authors (<a class="reference external" href="https://github.com/schropes/fora-corpus">https://github.com/schropes/fora-corpus</a>) and ConvoKit contains code for converting the transcripts into ConvoKit format, as detailed below.</p>
+<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>A collection of unintentionally offensive Tweets and replies in which a Tweet in the exchange was offensive to someone, followed by an indication that the poster meant no offense.</p>
 <ul class="simple">
 <li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
@@ -442,7 +441,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="ubuntu-chat-logs">
 <h2>Ubuntu Chat Logs<a class="headerlink" href="#ubuntu-chat-logs" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>Fora corpus is a dataset of 262 annotated transcripts of multi-person facilitated dialogues regarding issues like education, elections, and public health, primarily through the sharing of personal experience. The corpus is available by request from the authors (<a class="reference external" href="https://github.com/schropes/fora-corpus">https://github.com/schropes/fora-corpus</a>) and ConvoKit contains code for converting the transcripts into ConvoKit format, as detailed below.</p>
+<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>A collection of conversations featuring pairs of speakers where one speaker is assisting the other through Ubuntu chat logs to help them solve their problem.</p>
 <ul class="simple">
 <li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
@@ -450,7 +449,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="contextual-abuse-corpus">
 <h2>Contextual Abuse Corpus<a class="headerlink" href="#contextual-abuse-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>Fora corpus is a dataset of 262 annotated transcripts of multi-person facilitated dialogues regarding issues like education, elections, and public health, primarily through the sharing of personal experience. The corpus is available by request from the authors (<a class="reference external" href="https://github.com/schropes/fora-corpus">https://github.com/schropes/fora-corpus</a>) and ConvoKit contains code for converting the transcripts into ConvoKit format, as detailed below.</p>
+<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>This corpus contains around 26,500 annotated Reddit entries labeled into one or more of six primary categories of abuse. Secondary categories, labels annotated in the context of the conversation thread, and rationales are also included as part of the dataset.</p>
 <ul class="simple">
 <li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
@@ -458,7 +457,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="news-interview-corpus">
 <h2>News Interview Corpus<a class="headerlink" href="#news-interview-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>Fora corpus is a dataset of 262 annotated transcripts of multi-person facilitated dialogues regarding issues like education, elections, and public health, primarily through the sharing of personal experience. The corpus is available by request from the authors (<a class="reference external" href="https://github.com/schropes/fora-corpus">https://github.com/schropes/fora-corpus</a>) and ConvoKit contains code for converting the transcripts into ConvoKit format, as detailed below.</p>
+<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>A collection of 500 two-person informational interviews from National Public Radio (NPR) and Cable News Network (CNN), focusing on journalistic interviews between interviewers and sources from 2000 to 2020.</p>
 <ul class="simple">
 <li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
@@ -466,7 +465,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="emotional-support-conversation-corpus">
 <h2>Emotional Support Conversation Corpus<a class="headerlink" href="#emotional-support-conversation-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>Fora corpus is a dataset of 262 annotated transcripts of multi-person facilitated dialogues regarding issues like education, elections, and public health, primarily through the sharing of personal experience. The corpus is available by request from the authors (<a class="reference external" href="https://github.com/schropes/fora-corpus">https://github.com/schropes/fora-corpus</a>) and ConvoKit contains code for converting the transcripts into ConvoKit format, as detailed below.</p>
+<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>This dataset contains approximately 1,300 conversations collected in a help-seeker and supporter mode with crowdworkers.</p>
 <ul class="simple">
 <li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
