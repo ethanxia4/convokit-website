@@ -306,7 +306,7 @@ function initializeSearch(searchInputId, cardSelector) {
             
             // Check tag filter match
             const matchesFilters = activeFilters.size === 0 || 
-                                   Array.from(activeFilters).some(filter => 
+                                   Array.from(activeFilters).every(filter => 
                                        cardTags.includes(filter.toLowerCase())
                                    );
             
