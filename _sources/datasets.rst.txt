@@ -7,20 +7,12 @@ ConvoKit ships with several datasets ready for use "out-of-the-box". These datas
 
    <div class="dataset-search-container">
      <input type="text" id="dataset-search" placeholder="Search datasets by name or tags..." />
+     <div class="filter-label">Filter by tag:</div>
      <div class="tag-filters">
-       <span class="filter-label">Filter by tag:</span>
-       <button class="tag-filter" data-tag="Wikipedia">Wikipedia</button>
-       <button class="tag-filter" data-tag="Reddit">Reddit</button>
-       <button class="tag-filter" data-tag="debate">Debate</button>
-       <button class="tag-filter" data-tag="toxicity">Toxicity</button>
-       <button class="tag-filter" data-tag="movies">Movies</button>
-       <button class="tag-filter" data-tag="politics">Politics</button>
-       <button class="clear-filters">Clear Filters</button>
+       <!-- Tags will be dynamically populated by JavaScript -->
      </div>
+     <button class="clear-filters">Clear Filters</button>
    </div>
-
-.. raw:: html
-
    <div id="datasets-container">
 
 Conversations Gone Awry
@@ -28,7 +20,7 @@ Conversations Gone Awry
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="Wikipedia, toxicity, derailment, online, asynchronous, Reddit, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps">
+   <div class="dataset-card" data-tags="Wikipedia, derailment, online, asynchronous, Reddit, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps">
 
 Three related corpora of conversations that derail into antisocial behavior.
 
@@ -36,18 +28,18 @@ Three related corpora of conversations that derail into antisocial behavior.
 
 * **Size:** 4,188 conversations, 30,021 comments
 * **Download name:** ``conversations-gone-awry-corpus``
-* **Tags:** Wikipedia, toxicity, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps
+* **Tags:** Wikipedia, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps
 **CGA-CMV:** ChangeMyView discussion threads that derail into rule-violating behavior.
 
 * **Size:** 6,842 conversations, 42,964 comments
 * **Download name:** ``conversations-gone-awry-cmv-corpus``
-* **Tags:** Reddit, toxicity, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps
+* **Tags:** Reddit, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps
 
 **CGA-CMV-Large:** Expanded version of CGA-CMV dataset.
 
 * **Size:** 19,578 conversations, 116,793 utterances
 * **Download name:** ``conversations-gone-awry-cmv-corpus-large``
-* **Tags:** Reddit, toxicity, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps
+* **Tags:** Reddit, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps
 
 `Documentation <https://convokit.cornell.edu/documentation/awry.html>`_
 
@@ -78,13 +70,13 @@ Parliament Question Time Corpus
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="politics, speaker info, institutional, asymmetric, synchronous, short, large size">
+   <div class="dataset-card" data-tags="politics, speaker info, institutional, asymmetric, synchronous, short conversations, large size">
 
 Parliamentary question periods from May 1979 to December 2016.
 
 * **Size:** 216,894 question-answer pairs
 * **Download name:** ``parliament-corpus``
-* **Tags:** politics, speaker info, institutional, asymmetric, synchronous, short, large size
+* **Tags:** politics, speaker info, institutional, asymmetric, synchronous, short conversations, large size
 * `Documentation <https://convokit.cornell.edu/documentation/parliament.html>`_
 
 .. raw:: html
@@ -96,12 +88,12 @@ Supreme Court Corpus
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long, large size">
+   <div class="dataset-card" data-tags="institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long conversations, large size">
 
 A collection of conversations from U.S. Supreme Court oral arguments.
 
 * **Download name:** ``supreme-corpus``
-* **Tags:** institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long, large size
+* **Tags:** institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long conversations, large size
 * `Documentation <https://convokit.cornell.edu/documentation/supreme.html>`_
 
 .. raw:: html
@@ -399,7 +391,7 @@ Group Affect and Performance (GAP) Corpus
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="institution, small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration">
+   <div class="dataset-card" data-tags="small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration">
 
 A conversational dataset comprising group meetings of two to four participants that deliberate in a group decision-making exercise. This dataset contains 28 group meetings with a total of 84 participants.
 
@@ -500,11 +492,10 @@ Unintended Offense Corpus
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics">
-
+   <div class="dataset-card" data-tags="">
 A collection of unintentionally offensive Tweets and replies in which a Tweet in the exchange was offensive to someone, followed by an indication that the poster meant no offense. 
 
-* **Tags:** small size, speaker info, utterance labels, timestamps, group, in person, various topics
+* **Tags:** TODO
 * `Documentation <https://convokit.cornell.edu/documentation/casino-corpus.html>`_
 
 .. raw:: html
@@ -516,11 +507,11 @@ Ubuntu Chat Logs
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics">
+   <div class="dataset-card" data-tags="">
 
 A collection of conversations featuring pairs of speakers where one speaker is assisting the other through Ubuntu chat logs to help them solve their problem. 
 
-* **Tags:** small size, speaker info, utterance labels, timestamps, group, in person, various topics
+* **Tags:** TODO
 * `Documentation <https://convokit.cornell.edu/documentation/casino-corpus.html>`_
 
 .. raw:: html
@@ -532,11 +523,11 @@ Contextual Abuse Corpus
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics">
+   <div class="dataset-card" data-tags="">
 
 This corpus contains around 26,500 annotated Reddit entries labeled into one or more of six primary categories of abuse. Secondary categories, labels annotated in the context of the conversation thread, and rationales are also included as part of the dataset.  
 
-* **Tags:** small size, speaker info, utterance labels, timestamps, group, in person, various topics
+* **Tags:** TODO
 * `Documentation <https://convokit.cornell.edu/documentation/casino-corpus.html>`_
 
 .. raw:: html
@@ -548,11 +539,11 @@ News Interview Corpus
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics">
+   <div class="dataset-card" data-tags="">
 
 A collection of 500 two-person informational interviews from National Public Radio (NPR) and Cable News Network (CNN), focusing on journalistic interviews between interviewers and sources from 2000 to 2020.
 
-* **Tags:** small size, speaker info, utterance labels, timestamps, group, in person, various topics
+* **Tags:** TODO
 * `Documentation <https://convokit.cornell.edu/documentation/casino-corpus.html>`_
 
 .. raw:: html
@@ -564,11 +555,11 @@ Emotional Support Conversation Corpus
 
 .. raw:: html
 
-   <div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics">
+   <div class="dataset-card" data-tags="">
 
 This dataset contains approximately 1,300 conversations collected in a help-seeker and supporter mode with crowdworkers.
 
-* **Tags:** small size, speaker info, utterance labels, timestamps, group, in person, various topics
+* **Tags:** TODO
 * `Documentation <https://convokit.cornell.edu/documentation/casino-corpus.html>`_
 
 .. raw:: html

@@ -8,7 +8,7 @@
   </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=e1a1ceaf" />
     <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=14737038" />
     <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8787f4c3" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b05f33c2" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -159,36 +159,32 @@ data-aria-dark="Switch to auto color mode">
 <p>ConvoKit ships with several datasets ready for use “out-of-the-box”. These datasets can be downloaded using the <code class="docutils literal notranslate"><span class="pre">convokit.download()</span></code> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/util.py">helper function</a>. Alternatively you can access them directly <a class="reference external" href="http://zissou.infosci.cornell.edu/convokit/datasets/">here</a>.</p>
 <div class="dataset-search-container">
   <input type="text" id="dataset-search" placeholder="Search datasets by name or tags..." />
+  <div class="filter-label">Filter by tag:</div>
   <div class="tag-filters">
-    <span class="filter-label">Filter by tag:</span>
-    <button class="tag-filter" data-tag="Wikipedia">Wikipedia</button>
-    <button class="tag-filter" data-tag="Reddit">Reddit</button>
-    <button class="tag-filter" data-tag="debate">Debate</button>
-    <button class="tag-filter" data-tag="toxicity">Toxicity</button>
-    <button class="tag-filter" data-tag="movies">Movies</button>
-    <button class="tag-filter" data-tag="politics">Politics</button>
-    <button class="clear-filters">Clear Filters</button>
+    <!-- Tags will be dynamically populated by JavaScript -->
   </div>
-</div><div id="datasets-container"><section id="conversations-gone-awry">
+  <button class="clear-filters">Clear Filters</button>
+</div>
+<div id="datasets-container"><section id="conversations-gone-awry">
 <h2>Conversations Gone Awry<a class="headerlink" href="#conversations-gone-awry" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="Wikipedia, toxicity, derailment, online, asynchronous, Reddit, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps"><p>Three related corpora of conversations that derail into antisocial behavior.</p>
+<div class="dataset-card" data-tags="Wikipedia, derailment, online, asynchronous, Reddit, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps"><p>Three related corpora of conversations that derail into antisocial behavior.</p>
 <p><strong>CGA-WIKI:</strong> Wikipedia talk page conversations that derail into personal attacks as labeled by crowdworkers.</p>
 <ul class="simple">
 <li><p><strong>Size:</strong> 4,188 conversations, 30,021 comments</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">conversations-gone-awry-corpus</span></code></p></li>
-<li><p><strong>Tags:</strong> Wikipedia, toxicity, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps</p></li>
+<li><p><strong>Tags:</strong> Wikipedia, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps</p></li>
 </ul>
 <p><strong>CGA-CMV:</strong> ChangeMyView discussion threads that derail into rule-violating behavior.</p>
 <ul class="simple">
 <li><p><strong>Size:</strong> 6,842 conversations, 42,964 comments</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">conversations-gone-awry-cmv-corpus</span></code></p></li>
-<li><p><strong>Tags:</strong> Reddit, toxicity, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps</p></li>
+<li><p><strong>Tags:</strong> Reddit, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps</p></li>
 </ul>
 <p><strong>CGA-CMV-Large:</strong> Expanded version of CGA-CMV dataset.</p>
 <ul class="simple">
 <li><p><strong>Size:</strong> 19,578 conversations, 116,793 utterances</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">conversations-gone-awry-cmv-corpus-large</span></code></p></li>
-<li><p><strong>Tags:</strong> Reddit, toxicity, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps</p></li>
+<li><p><strong>Tags:</strong> Reddit, derailment, online, asynchronous, outcome labels, summaries, persuasion, online, medium size, debate, medium conversations, timestamps</p></li>
 </ul>
 <p><a class="reference external" href="https://convokit.cornell.edu/documentation/awry.html">Documentation</a></p>
 </div></section>
@@ -204,20 +200,20 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="parliament-question-time-corpus">
 <h2>Parliament Question Time Corpus<a class="headerlink" href="#parliament-question-time-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="politics, speaker info, institutional, asymmetric, synchronous, short, large size"><p>Parliamentary question periods from May 1979 to December 2016.</p>
+<div class="dataset-card" data-tags="politics, speaker info, institutional, asymmetric, synchronous, short conversations, large size"><p>Parliamentary question periods from May 1979 to December 2016.</p>
 <ul class="simple">
 <li><p><strong>Size:</strong> 216,894 question-answer pairs</p></li>
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">parliament-corpus</span></code></p></li>
-<li><p><strong>Tags:</strong> politics, speaker info, institutional, asymmetric, synchronous, short, large size</p></li>
+<li><p><strong>Tags:</strong> politics, speaker info, institutional, asymmetric, synchronous, short conversations, large size</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/parliament.html">Documentation</a></p></li>
 </ul>
 </div></section>
 <section id="supreme-court-corpus">
 <h2>Supreme Court Corpus<a class="headerlink" href="#supreme-court-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long, large size"><p>A collection of conversations from U.S. Supreme Court oral arguments.</p>
+<div class="dataset-card" data-tags="institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long conversations, large size"><p>A collection of conversations from U.S. Supreme Court oral arguments.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">supreme-corpus</span></code></p></li>
-<li><p><strong>Tags:</strong> institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long, large size</p></li>
+<li><p><strong>Tags:</strong> institutional, asymmetric, law, speaker info, outcome labels, in person, synchronous, long conversations, large size</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/supreme.html">Documentation</a></p></li>
 </ul>
 </div></section>
@@ -380,7 +376,7 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="group-affect-and-performance-gap-corpus">
 <h2>Group Affect and Performance (GAP) Corpus<a class="headerlink" href="#group-affect-and-performance-gap-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="institution, small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration"><p>A conversational dataset comprising group meetings of two to four participants that deliberate in a group decision-making exercise. This dataset contains 28 group meetings with a total of 84 participants.</p>
+<div class="dataset-card" data-tags="small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration"><p>A conversational dataset comprising group meetings of two to four participants that deliberate in a group decision-making exercise. This dataset contains 28 group meetings with a total of 84 participants.</p>
 <ul class="simple">
 <li><p><strong>Download name:</strong> <code class="docutils literal notranslate"><span class="pre">gap-corpus</span></code></p></li>
 <li><p><strong>Tags:</strong> institution, small size, in person, group, speaker info, timestamps, summaries, outcome labels, collaboration</p></li>
@@ -433,41 +429,41 @@ data-aria-dark="Switch to auto color mode">
 </div></section>
 <section id="unintended-offense-corpus">
 <h2>Unintended Offense Corpus<a class="headerlink" href="#unintended-offense-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>A collection of unintentionally offensive Tweets and replies in which a Tweet in the exchange was offensive to someone, followed by an indication that the poster meant no offense.</p>
+<div class="dataset-card" data-tags=""><p>A collection of unintentionally offensive Tweets and replies in which a Tweet in the exchange was offensive to someone, followed by an indication that the poster meant no offense.</p>
 <ul class="simple">
-<li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
+<li><p><strong>Tags:</strong> TODO</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
 </ul>
 </div></section>
 <section id="ubuntu-chat-logs">
 <h2>Ubuntu Chat Logs<a class="headerlink" href="#ubuntu-chat-logs" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>A collection of conversations featuring pairs of speakers where one speaker is assisting the other through Ubuntu chat logs to help them solve their problem.</p>
+<div class="dataset-card" data-tags=""><p>A collection of conversations featuring pairs of speakers where one speaker is assisting the other through Ubuntu chat logs to help them solve their problem.</p>
 <ul class="simple">
-<li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
+<li><p><strong>Tags:</strong> TODO</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
 </ul>
 </div></section>
 <section id="contextual-abuse-corpus">
 <h2>Contextual Abuse Corpus<a class="headerlink" href="#contextual-abuse-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>This corpus contains around 26,500 annotated Reddit entries labeled into one or more of six primary categories of abuse. Secondary categories, labels annotated in the context of the conversation thread, and rationales are also included as part of the dataset.</p>
+<div class="dataset-card" data-tags=""><p>This corpus contains around 26,500 annotated Reddit entries labeled into one or more of six primary categories of abuse. Secondary categories, labels annotated in the context of the conversation thread, and rationales are also included as part of the dataset.</p>
 <ul class="simple">
-<li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
+<li><p><strong>Tags:</strong> TODO</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
 </ul>
 </div></section>
 <section id="news-interview-corpus">
 <h2>News Interview Corpus<a class="headerlink" href="#news-interview-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>A collection of 500 two-person informational interviews from National Public Radio (NPR) and Cable News Network (CNN), focusing on journalistic interviews between interviewers and sources from 2000 to 2020.</p>
+<div class="dataset-card" data-tags=""><p>A collection of 500 two-person informational interviews from National Public Radio (NPR) and Cable News Network (CNN), focusing on journalistic interviews between interviewers and sources from 2000 to 2020.</p>
 <ul class="simple">
-<li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
+<li><p><strong>Tags:</strong> TODO</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
 </ul>
 </div></section>
 <section id="emotional-support-conversation-corpus">
 <h2>Emotional Support Conversation Corpus<a class="headerlink" href="#emotional-support-conversation-corpus" title="Link to this heading"></a></h2>
-<div class="dataset-card" data-tags="small size, speaker info, utterance labels, timestamps, group, in person, various topics"><p>This dataset contains approximately 1,300 conversations collected in a help-seeker and supporter mode with crowdworkers.</p>
+<div class="dataset-card" data-tags=""><p>This dataset contains approximately 1,300 conversations collected in a help-seeker and supporter mode with crowdworkers.</p>
 <ul class="simple">
-<li><p><strong>Tags:</strong> small size, speaker info, utterance labels, timestamps, group, in person, various topics</p></li>
+<li><p><strong>Tags:</strong> TODO</p></li>
 <li><p><a class="reference external" href="https://convokit.cornell.edu/documentation/casino-corpus.html">Documentation</a></p></li>
 </ul>
 </div>
@@ -526,5 +522,5 @@ See our <a class="reference external" href="https://github.com/CornellNLP/ConvoK
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/shibuya.js?v=c1cf1a6b"></script>
-      <script src="_static/custom.js?v=68b30c0e"></script></body>
+      <script src="_static/custom.js?v=45c72e7a"></script></body>
 </html>

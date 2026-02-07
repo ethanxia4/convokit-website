@@ -1,5 +1,19 @@
 // docs/source/_static/custom.js
 
+// Tag type definitions with their categories
+const TAG_TYPES = {
+    'Location': 'location',
+    'Conversation Type': 'conversation-type',
+    'Metadata': 'metadata',
+    'Source': 'source',
+    'Dataset Size': 'dataset-size',
+    'Conversation Length': 'conversation-length',
+    'Topics': 'topics',
+    'Language': 'language',
+    'Format': 'format',
+    'Dynamics': 'dynamics'
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize dataset search and filters
     initializeSearch('dataset-search', '.dataset-card');
@@ -11,43 +25,270 @@ function initializeSearch(searchInputId, cardSelector) {
     if (!searchInput) return;
     
     const cards = document.querySelectorAll(cardSelector);
-    const tagFilters = searchInput.closest('.dataset-search-container, .feature-search-container')
-                                   .querySelectorAll('.tag-filter');
-    const clearButton = searchInput.closest('.dataset-search-container, .feature-search-container')
-                                    .querySelector('.clear-filters');
+    const container = searchInput.closest('.dataset-search-container, .feature-search-container');
+    const tagFiltersContainer = container.querySelector('.tag-filters');
+    const clearButton = container.querySelector('.clear-filters');
     
     let activeFilters = new Set();
+    let allTags = new Map(); // Map of tag -> {type, count}
+    
+    // Extract all tags from dataset cards
+    extractAllTags();
+    
+    // Initial render - show hierarchical view
+    renderTagFilters('');
     
     // Search functionality
     searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.trim();
+        renderTagFilters(searchTerm);
         filterCards();
-    });
-    
-    // Tag filter functionality
-    tagFilters.forEach(button => {
-        button.addEventListener('click', function() {
-            const tag = this.dataset.tag;
-            
-            if (activeFilters.has(tag)) {
-                activeFilters.delete(tag);
-                this.classList.remove('active');
-            } else {
-                activeFilters.add(tag);
-                this.classList.add('active');
-            }
-            
-            filterCards();
-        });
     });
     
     // Clear filters functionality
     if (clearButton) {
         clearButton.addEventListener('click', function() {
             activeFilters.clear();
-            tagFilters.forEach(button => button.classList.remove('active'));
             searchInput.value = '';
+            renderTagFilters('');
             filterCards();
         });
+    }
+    
+    function extractAllTags() {
+        allTags.clear();
+        
+        cards.forEach(card => {
+            const cardTags = card.dataset.tags ? card.dataset.tags.split(',').map(t => t.trim()) : [];
+            
+            cardTags.forEach(tag => {
+                if (!tag) return;
+                
+                // Determine tag type
+                const tagType = determineTagType(tag);
+                
+                if (!allTags.has(tag)) {
+                    allTags.set(tag, { type: tagType, count: 0 });
+                }
+                allTags.get(tag).count++;
+            });
+        });
+    }
+    
+    function determineTagType(tag) {
+        const tagLower = tag.toLowerCase();
+        
+        // Location tags
+        if (tagLower.includes('in person') || tagLower.includes('online') || 
+            tagLower.includes('fictional')){
+            return 'location';
+        }
+        
+        // Conversation type tags
+        if (tagLower.includes('group') || tagLower.includes('dyadic') || 
+            tagLower.includes('symmetric') || tagLower.includes('asymmetric') ||
+            tagLower.includes('synchronous') || tagLower.includes('asynchronous')) {
+            return 'conversation-type';
+        }
+        
+        // Metadata tags
+        if (tagLower.includes('outcome labels') || tagLower.includes('utterance labels') || 
+            tagLower.includes('speaker info') || tagLower.includes('summaries') ||
+            tagLower.includes('timestamps')) {
+            return 'metadata';
+        }
+        
+        // Source tags
+        if (tagLower.includes('reddit') || tagLower.includes('wikipedia') || 
+            tagLower.includes('twitter/x') || tagLower.includes('institutional') ||
+            tagLower.includes('media') || tagLower.includes('stack exchange')) {
+            return 'source';
+        }
+        
+        // Dataset size tags
+        if (tagLower.includes('small size') || tagLower.includes('medium size') || 
+            tagLower.includes('large size')) {
+            return 'dataset-size';
+        }
+        
+        // Conversation length tags
+        if (tagLower.includes('short conversations') || tagLower.includes('medium conversations') || 
+            tagLower.includes('long conversations')) {
+            return 'conversation-length';
+        }
+        
+        // Topics tags
+        if (tagLower.includes('politics') || tagLower.includes('law') || 
+            tagLower.includes('movies') || tagLower.includes('sports') ||
+            tagLower.includes('work') || tagLower.includes('various topics') ||
+            tagLower.includes('financial')) {
+            return 'topics';
+        }
+        
+        // Language tags
+        if (tagLower.includes('english') || tagLower.includes('multiple languages')) {
+            return 'language';
+        }
+        
+        // Format tags
+        if (tagLower.includes('interviews') || tagLower.includes('collaboration') || 
+            tagLower.includes('debate') || tagLower.includes('customer support')) {
+            return 'format';
+        }
+        
+        // Dynamics tags
+        if (tagLower.includes('persuasion') || tagLower.includes('sarcasm') || 
+            tagLower.includes('derailment') || tagLower.includes('recovery') ||
+            tagLower.includes('negotiation') || tagLower.includes('q&a') || 
+            tagLower.includes('politness') || tagLower.includes('deception') ||
+            tagLower.includes('problem solving')) {
+            return 'dynamics';
+        }
+        
+        // Default to topics if unknown
+        return 'topics';
+    }
+    
+    function renderTagFilters(searchTerm) {
+        const isSearching = searchTerm.length > 0;
+        
+        if (isSearching) {
+            renderFlatTags(searchTerm);
+        } else {
+            renderHierarchicalTags();
+        }
+    }
+    
+    function renderFlatTags(searchTerm) {
+        // Get matching tags based on search term
+        const matchingTags = getMatchingTags(searchTerm);
+        
+        // Clear current filters
+        tagFiltersContainer.innerHTML = '';
+        
+        if (matchingTags.size === 0) {
+            tagFiltersContainer.innerHTML = '<div style="color: #7f8c8d; font-style: italic;">No matching tags found</div>';
+            return;
+        }
+        
+        // Create flat list of tags
+        const tagsArray = Array.from(matchingTags.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+        
+        tagsArray.forEach(([tag, info]) => {
+            const button = createTagButton(tag, info.type);
+            tagFiltersContainer.appendChild(button);
+        });
+    }
+    
+    function renderHierarchicalTags() {
+        // Clear current filters
+        tagFiltersContainer.innerHTML = '';
+        
+        // Create tag groups container
+        const groupsContainer = document.createElement('div');
+        groupsContainer.className = 'tag-groups';
+        
+        // Group tags by type
+        const tagsByType = new Map();
+        allTags.forEach((info, tag) => {
+            if (!tagsByType.has(info.type)) {
+                tagsByType.set(info.type, []);
+            }
+            tagsByType.get(info.type).push(tag);
+        });
+        
+        // Create groups for each tag type that has tags
+        Object.entries(TAG_TYPES).forEach(([typeName, typeId]) => {
+            const tagsOfType = tagsByType.get(typeId);
+            if (!tagsOfType || tagsOfType.length === 0) return;
+            
+            const group = createTagGroup(typeName, typeId, tagsOfType);
+            groupsContainer.appendChild(group);
+        });
+        
+        tagFiltersContainer.appendChild(groupsContainer);
+    }
+    
+    function createTagGroup(typeName, typeId, tags) {
+        const group = document.createElement('div');
+        group.className = 'tag-group';
+        
+        // Create header
+        const header = document.createElement('div');
+        header.className = 'tag-group-header collapsed';
+        header.dataset.type = typeId;
+        header.textContent = typeName;
+        
+        // Create tags container
+        const tagsContainer = document.createElement('div');
+        tagsContainer.className = 'tag-group-tags collapsed';
+        
+        // Sort and add tags
+        tags.sort().forEach(tag => {
+            const button = createTagButton(tag, typeId);
+            tagsContainer.appendChild(button);
+        });
+        
+        // Toggle functionality
+        header.addEventListener('click', function() {
+            const isCollapsed = this.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                this.classList.remove('collapsed');
+                this.classList.add('expanded');
+                tagsContainer.classList.remove('collapsed');
+            } else {
+                this.classList.add('collapsed');
+                this.classList.remove('expanded');
+                tagsContainer.classList.add('collapsed');
+            }
+        });
+        
+        group.appendChild(header);
+        group.appendChild(tagsContainer);
+        
+        return group;
+    }
+    
+    function createTagButton(tag, type) {
+        const button = document.createElement('button');
+        button.className = 'tag-filter';
+        button.dataset.tag = tag;
+        button.dataset.type = type;
+        button.textContent = tag;
+        
+        if (activeFilters.has(tag)) {
+            button.classList.add('active');
+        }
+        
+        button.addEventListener('click', function() {
+            const tagName = this.dataset.tag;
+            
+            if (activeFilters.has(tagName)) {
+                activeFilters.delete(tagName);
+                this.classList.remove('active');
+            } else {
+                activeFilters.add(tagName);
+                this.classList.add('active');
+            }
+            
+            filterCards();
+        });
+        
+        return button;
+    }
+    
+    function getMatchingTags(searchTerm) {
+        const matchingTags = new Map();
+        const lowerSearch = searchTerm.toLowerCase();
+        
+        allTags.forEach((info, tag) => {
+            if (tag.toLowerCase().includes(lowerSearch)) {
+                matchingTags.set(tag, info);
+            }
+        });
+        
+        return matchingTags;
     }
     
     function filterCards() {
