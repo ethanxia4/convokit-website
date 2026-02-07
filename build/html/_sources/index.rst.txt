@@ -93,7 +93,6 @@ For an overview, watch our SIGDIAL talk introducing the toolkit:
    installation
    datasets
    features
-   contributing
    contributors
 
 Community & Support
