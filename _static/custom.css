@@ -28,6 +28,19 @@
     box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
 }
 
+/* Tag filters container */
+.tag-filters {
+    min-height: 40px;
+    margin-bottom: 1rem;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
 /* Tag filters */
 .tag-filters {
     display: flex;
@@ -229,18 +242,24 @@
 }
 
 .clear-filters {
-    padding: 6px 14px;
-    background: #e74c3c;
+    padding: 8px 16px;
+    background: #95a5a6;
     border: none;
     color: white;
     border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s;
+    margin-top: 0.5rem;
+    display: inline-block;
 }
 
 .clear-filters:hover {
-    background: #c0392b;
+    background: #7f8c8d;
+}
+
+.clear-filters:active {
+    background: #e74c3c;
 }
 
 /* Dataset and Feature cards */
@@ -337,6 +356,264 @@
     .dataset-card,
     .feature-card {
         padding: 1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    /* Search container */
+    .dataset-search-container,
+    .feature-search-container {
+        background: #1e1e1e;
+        border-color: #404040;
+    }
+    
+    /* Search input */
+    #dataset-search,
+    #feature-search {
+        background: #2d2d2d;
+        border-color: #4a90c0;
+        color: #e0e0e0;
+    }
+    
+    #dataset-search::placeholder,
+    #feature-search::placeholder {
+        color: #a0a0a0;
+        opacity: 1;
+    }
+    
+    #dataset-search:focus,
+    #feature-search:focus {
+        border-color: #5aa5d9;
+        box-shadow: 0 0 0 3px rgba(90, 165, 217, 0.2);
+    }
+    
+    /* Filter label */
+    .filter-label {
+        color: #c0c0c0;
+    }
+    
+    /* Tag group headers */
+    .tag-group-header {
+        background: #2d2d2d;
+        color: #e0e0e0;
+    }
+    
+    .tag-group-header:hover {
+        background: #3a3a3a;
+    }
+    
+    /* Tag filter buttons */
+    .tag-filter {
+        background: #2d2d2d;
+    }
+    
+    .tag-filter:hover {
+        opacity: 0.9;
+    }
+    
+    /* Dataset and Feature cards */
+    .dataset-card,
+    .feature-card {
+        background: #312f2f;
+        border-color: #404040;
+        color: #d0d0d0;
+    }
+    
+    .dataset-card:hover,
+    .feature-card:hover {
+        border-color: #4a90c0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .dataset-card h3,
+    .feature-card h3 {
+        color: #e8e8e8;
+    }
+    
+    .dataset-card p,
+    .feature-card p,
+    .dataset-card > p,
+    .feature-card > p {
+        color: #d0d0d0 !important;
+    }
+    
+    .dataset-card p:first-of-type,
+    .feature-card p:first-of-type {
+        color: #d8d8d8 !important;
+    }
+
+    .dataset-card li,
+    .feature-card li,
+    .dataset-card ul li,
+    .feature-card ul li {
+        color: #d0d0d0 !important;
+    }
+    
+    .dataset-card strong,
+    .feature-card strong {
+        color: #5aa5d9;
+    }
+    
+    .dataset-card a,
+    .feature-card a {
+        color: #5aa5d9;
+    }
+    
+    .dataset-card a:hover,
+    .feature-card a:hover {
+        color: #7bb9e6;
+    }
+    
+    /* Tag badges */
+    .tag-badge {
+        background: #2d2d2d;
+        color: #c0c0c0;
+    }
+    
+    /* Buttons */
+    .dataset-card .btn,
+    .feature-card .btn {
+        background: #4a90c0;
+    }
+    
+    .dataset-card .btn:hover,
+    .feature-card .btn:hover {
+        background: #5aa5d9;
+    }
+    
+    .clear-filters {
+        background: #6d7278;
+    }
+    
+    .clear-filters:hover {
+        background: #848a91;
+    }
+    
+    .clear-filters:active {
+        background: #c45b4d;
+    }
+    
+    /* No results message */
+    .no-results {
+        color: #909090;
+    }
+    
+    /* Code blocks */
+    .dataset-card .highlight,
+    .feature-card .highlight {
+        background: #2d2d2d;
+    }
+    
+    /* Tag colors for dark mode - slightly desaturated for better readability */
+    .tag-filter[data-type="location"],
+    .tag-group-header[data-type="location"] {
+        border-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+    .tag-filter[data-type="location"].active {
+        background: #e74c3c;
+        color: white;
+    }
+
+    .tag-filter[data-type="conversation-type"],
+    .tag-group-header[data-type="conversation-type"] {
+        border-color: #f08c08;
+        color: #f08c08;
+    }
+
+    .tag-filter[data-type="conversation-type"].active {
+        background: #f08c08;
+        color: white;
+    }
+
+    .tag-filter[data-type="metadata"],
+    .tag-group-header[data-type="metadata"] {
+        border-color: #d4b21c;
+        color: #d4b21c;
+    }
+
+    .tag-filter[data-type="metadata"].active {
+        background: #d4b21c;
+        color: white;
+    }
+
+    .tag-filter[data-type="source"],
+    .tag-group-header[data-type="source"] {
+        border-color: #356f0b;
+        color: #356f0b;
+    }
+
+    .tag-filter[data-type="source"].active {
+        background: #356f0b;
+        color: white;
+    }
+
+    .tag-filter[data-type="dataset-size"],
+    .tag-group-header[data-type="dataset-size"] {
+        border-color: #0fc27a;
+        color: #0fc27a;
+    }
+
+    .tag-filter[data-type="dataset-size"].active {
+        background: #0fc27a;
+        color: white;
+    }
+
+    .tag-filter[data-type="conversation-length"],
+    .tag-group-header[data-type="conversation-length"] {
+        border-color: #1eafba;
+        color: #1eafba;
+    }
+
+    .tag-filter[data-type="conversation-length"].active {
+        background: #1eafba;
+        color: white;
+    }
+
+    .tag-filter[data-type="topics"],
+    .tag-group-header[data-type="topics"] {
+        border-color: #187db4;
+        color: #187db4;
+    }
+
+    .tag-filter[data-type="topics"].active {
+        background: #187db4;
+        color: white;
+    }
+
+    .tag-filter[data-type="language"],
+    .tag-group-header[data-type="language"] {
+        border-color: #3b378e;
+        color: #3b378e;
+    }
+
+    .tag-filter[data-type="language"].active {
+        background: #3b378e;
+        color: white;
+    }
+
+    .tag-filter[data-type="format"],
+    .tag-group-header[data-type="format"] {
+        border-color: #7f3bb9;
+        color: #7f3bb9;
+    }
+
+    .tag-filter[data-type="format"].active {
+        background: #7f3bb9;
+        color: white;
+    }
+
+    .tag-filter[data-type="dynamics"],
+    .tag-group-header[data-type="dynamics"] {
+        border-color: #920d56;
+        color: #920d56;
+    }
+
+    .tag-filter[data-type="dynamics"].active {
+        background: #920d56;
+        color: white;
     }
 }
 
