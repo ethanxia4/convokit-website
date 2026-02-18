@@ -1,7 +1,7 @@
 Datasets
 ========
 
-ConvoKit ships with several datasets ready for use "out-of-the-box". These datasets can be downloaded using the ``convokit.download()`` `helper function <https://github.com/CornellNLP/ConvoKit/blob/master/convokit/util.py>`_. Alternatively you can access them directly `here <http://zissou.infosci.cornell.edu/convokit/datasets/>`_.
+ConvoKit ships with several datasets ready for uuuuse "out-of-the-box". These datasets can be downloaded using the ``convokit.download()`` `helper function <https://github.com/CornellNLP/ConvoKit/blob/master/convokit/util.py>`_. Alternatively you can access them directly `here <http://zissou.infosci.cornell.edu/convokit/datasets/>`_.
 
 .. raw:: html
 
