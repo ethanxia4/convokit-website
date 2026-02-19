@@ -1,5 +1,58 @@
 // docs/source/_static/custom.js
 
+// ─── Theme synchronisation ────────────────────────────────────────────────────
+// Sphinx themes (Furo, PyData, Read-the-Docs, etc.) signal dark/light mode by
+// setting an attribute on <html> – but the attribute name differs per theme:
+//   Furo              → data-theme="dark" | "light"
+//   PyData / RTD      → data-bs-theme="dark" | "light"
+//   sphinx-book-theme → class contains "dark"
+//
+// Because we cannot know in advance which theme is used, we watch for ANY
+// attribute change on <html> with a MutationObserver, derive the effective
+// theme, and stamp a single class ("convokit-dark") on <body>.  Our custom
+// CSS then targets body.convokit-dark instead of fragile media-query overrides.
+// ─────────────────────────────────────────────────────────────────────────────
+
+function getEffectiveTheme() {
+    const html = document.documentElement;
+
+    // 1. Explicit data-theme attribute (Furo, etc.)
+    const dataTheme = html.getAttribute('data-theme');
+    if (dataTheme === 'dark')  return 'dark';
+    if (dataTheme === 'light') return 'light';
+
+    // 2. Bootstrap-style data-bs-theme (PyData Sphinx Theme)
+    const bsTheme = html.getAttribute('data-bs-theme');
+    if (bsTheme === 'dark')  return 'dark';
+    if (bsTheme === 'light') return 'light';
+
+    // 3. Class-based (some themes add class "dark" or "theme-dark" to <html>)
+    if (html.classList.contains('dark') || html.classList.contains('theme-dark')) return 'dark';
+    if (html.classList.contains('light') || html.classList.contains('theme-light')) return 'light';
+
+    // 4. Fall back to OS preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyThemeClass() {
+    const theme = getEffectiveTheme();
+    document.body.classList.toggle('convokit-dark', theme === 'dark');
+}
+
+// Apply immediately on load, then watch for any further changes
+document.addEventListener('DOMContentLoaded', applyThemeClass);
+
+// Watch <html> for attribute mutations (catches all Sphinx theme toggles)
+new MutationObserver(applyThemeClass).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme', 'data-bs-theme', 'class']
+});
+
+// Also react if the OS preference changes while the page is open
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyThemeClass);
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Tag type definitions with their categories
 const TAG_TYPES = {
     'Location': 'location',
