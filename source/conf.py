@@ -30,24 +30,12 @@ html_static_path = ['_static']
 html_css_files = ['custom.css']
 html_js_files = ['custom.js']
 
-html_theme_options = {
-    'navigation_depth': 3,
-    'collapse_navigation': False,
-    'sticky_navigation': True,
-    'includehidden': True,
-    'titles_only': False,
-    'display_version': True,
-}
-
 html_logo = None  # Add your logo path here if available
 html_favicon = None  # Add favicon path here if available
 
 # Sidebar configuration
 html_sidebars = {
     '**': [
-        'globaltoc.html',
-        'sourcelink.html',
-        'searchbox.html',
     ]
 }
 

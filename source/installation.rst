@@ -163,7 +163,6 @@ This installs ConvoKit in editable mode with development dependencies.
 Next Steps
 ----------
 
-* :doc:`getting-started` - Learn the basics with tutorials
 * :doc:`datasets` - Explore available datasets
 * :doc:`features` - Discover analysis features
 * `API Documentation <https://convokit.cornell.edu/documentation/>`_ - Detailed API reference
