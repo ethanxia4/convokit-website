@@ -8,7 +8,7 @@
   </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=e1a1ceaf" />
     <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=14737038" />
     <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=663271cc" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=bd6e100a" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -106,131 +106,284 @@ data-aria-dark="Switch to auto color mode">
 <p>ConvoKit provides a comprehensive set of analysis tools for extracting conversational features and studying social phenomena. All features follow a scikit-learn-inspired interface.</p>
 <div class="feature-search-container">
   <input type="text" id="feature-search" placeholder="Search features by name or tags..." />
+  <div class="filter-label">Filter by category:</div>
   <div class="tag-filters">
-    <span class="filter-label">Filter by category:</span>
-    <button class="tag-filter" data-tag="linguistic">Linguistic</button>
-    <button class="tag-filter" data-tag="social">Social</button>
-    <button class="tag-filter" data-tag="structural">Structural</button>
-    <button class="tag-filter" data-tag="prediction">Prediction</button>
-    <button class="tag-filter" data-tag="modeling">Modeling</button>
-    <button class="clear-filters">Clear Filters</button>
+    <!-- Tags will be dynamically populated by JavaScript -->
   </div>
+  <button class="clear-filters">Clear Filters</button>
 </div>
 
-<div id="features-container"><section id="linguistic-coordination">
-<h2>Linguistic Coordination<a class="headerlink" href="#linguistic-coordination" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="linguistic,power,influence"><p>A measure of linguistic influence and relative power between individuals or groups based on function word usage.</p>
+<div id="features-container"><section id="textparser">
+<h2>TextParser<a class="headerlink" href="#textparser" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="pre-processing, parsing, utterance, linguistic"><p>Dependency-parses each utterance in a corpus using SpaCy. This parsing step is a prerequisite for several other ConvoKit transformers.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Power dynamics analysis, influence measurement</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/coordination.html">coordination</a></p></li>
-<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Echoes_of_power.html">Echoes of Power</a></p></li>
-<li><p><strong>Tags:</strong> linguistic, power, influence</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/textParser.html">TextParser</a></p></li>
+<li><p><strong>Tags:</strong> pre-processing, parsing, utterance, linguistic</p></li>
 </ul>
-<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/coordination/examples.ipynb">Power balance in U.S. Supreme Court</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Coordination</span>
-</span><span data-line="2">
-</span><span data-line="3"><span class="n">coord</span> <span class="o">=</span> <span class="n">Coordination</span><span class="p">()</span>
-</span><span data-line="4"><span class="n">corpus</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
-</span></pre></div>
-</div>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/text-processing/text_preprocessing_demo.ipynb">Text Preprocessing</a></p>
 </div></section>
-<section id="politeness-strategies">
-<h2>Politeness Strategies<a class="headerlink" href="#politeness-strategies" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="linguistic,social,politeness"><p>Lexical and parse-based features that correlate with politeness and impoliteness in conversations.</p>
+<section id="texttoarcs">
+<h2>TextToArcs<a class="headerlink" href="#texttoarcs" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="pre-processing, structural, parsing, utterance, linguistic, pattern"><p>Converts dependency parse output into arc-based representations, where each sentence is expressed as a collection of dependency arc strings. Requires TextParser to be run first.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Politeness analysis, request analysis, conflict detection</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/politenessStrategies.html">politenessStrategies</a></p></li>
-<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Politeness.html">A Computational Approach to Politeness</a></p></li>
-<li><p><strong>Tags:</strong> linguistic, social, politeness</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/textToArcs.html">TextToArcs</a></p></li>
+<li><p><strong>Tags:</strong> pre-processing, structural, parsing, utterance, linguistic, pattern</p></li>
 </ul>
-<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/conversations-gone-awry/Conversations_Gone_Awry_Prediction.ipynb">Politeness in Wikipedia conflicts</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolitenessStrategies</span>
-</span><span data-line="2">
-</span><span data-line="3"><span class="n">ps</span> <span class="o">=</span> <span class="n">PolitenessStrategies</span><span class="p">()</span>
-</span><span data-line="4"><span class="n">corpus</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
-</span></pre></div>
-</div>
 </div></section>
-<section id="expected-conversational-context-framework">
-<h2>Expected Conversational Context Framework<a class="headerlink" href="#expected-conversational-context-framework" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="modeling,context,characterization"><p>A framework for characterizing utterances and terms based on their expected conversational context.</p>
+<section id="textcleaner">
+<h2>TextCleaner<a class="headerlink" href="#textcleaner" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="pre-processing, utterance, linguistic"><p>Cleans utterance text by fixing unicode errors, lowercasing, removing line breaks, and replacing URLs, emails, phone numbers, and currency symbols with special tokens. Supports custom cleaning functions.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Question type derivation, dialog act classification, utterance characterization</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/expected_context_model.html">expected_context_model</a></p></li>
-<li><p><strong>Research:</strong> <a class="reference external" href="https://tisjune.github.io/research/dissertation">Expected Context Framework</a></p></li>
-<li><p><strong>Tags:</strong> modeling, context, linguistic</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/textCleaner.html">TextCleaner</a></p></li>
+<li><p><strong>Tags:</strong> pre-processing, utterance, linguistic</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div></section>
+<section id="textprocessor-base-class">
+<h2>TextProcessor (base class)<a class="headerlink" href="#textprocessor-base-class" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="pre-processing, utterance, linguistic"><p>Abstract base class for text processing transformers in ConvoKit. Provides a shared interface for transformers that read and write utterance text fields, enabling pipeline composition of text processing steps.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/parliament_demo.ipynb">Question types in British Parliament</a></p></li>
-<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/switchboard_exploration_demo.ipynb">Switchboard dialog acts</a></p></li>
-<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/wiki_awry_demo.ipynb">Wikipedia discussions</a></p></li>
-<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/scotus_orientation_demo.ipynb">Supreme Court orientations</a></p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/transformer.html">Transformer (base class)</a></p></li>
+<li><p><strong>Tags:</strong> pre-processing, utterance, linguistic</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/text-processing/text_preprocessing_demo.ipynb">Text Preprocessing</a></p>
+</div></section>
+<section id="bag-of-words">
+<h2>Bag-of-Words<a class="headerlink" href="#bag-of-words" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="feature extraction, vectorization, speaker, utterance, conversation"><p>Vectorizes corpus objects (utterances, speakers, or conversations) using bag-of-words representations. Compatible with any sklearn-style vectorizer including TF-IDF. Stores representations as ConvoKitMatrix objects for downstream use with classifiers.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/bow.html">BoWTransformer</a></p></li>
+<li><p><strong>Tags:</strong> feature extraction, vectorization, speaker, utterance, conversation</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/vectors/bag-of-words-demo.ipynb">Bag-of-Words classification</a></p>
+</div></section>
+<section id="column-normalized-tf-idf">
+<h2>Column Normalized Tf-Idf<a class="headerlink" href="#column-normalized-tf-idf" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="feature extraction, utterance, representation"><p>A modified Tf-Idf transformer that normalizes by columns (term-wise) rather than rows, producing more balanced term representations across a corpus. Often used as input to the Expected Conversational Context Framework.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/col_normed_tfidf.html">ColNormedTfidfTransformer</a></p></li>
+<li><p><strong>Tags:</strong> feature extraction, utterance, representation</p></li>
 </ul>
 </div></section>
 <section id="hypergraph-conversation-representation">
 <h2>Hypergraph Conversation Representation<a class="headerlink" href="#hypergraph-conversation-representation" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="structural,graph,patterns"><p>Extract structural features of conversations through hypergraph representation.</p>
+<div class="feature-card" data-tags="structural, graph, conversation, pattern"><p>Extracts structural features of conversations through a hypergraph model, computing degree distribution statistics and motif counts for both full conversations and mid-threads. Forms the basis for ThreadEmbedder and CommunityEmbedder.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Conversation structure analysis, participation patterns, thread dynamics</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/hyperconvo.html">hyperconvo</a></p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/hyperconvo.html">HyperConvo</a></p></li>
 <li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Patterns_of_participant_interactions.html">Patterns of Participant Interactions</a></p></li>
-<li><p><strong>Tags:</strong> structural, graph, patterns</p></li>
+<li><p><strong>Tags:</strong> structural, graph, conversation, pattern</p></li>
 </ul>
 <p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/hyperconvo/hyperconvo_demo.ipynb">Reddit hypergraph analysis</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">HyperConvo</span>
-</span><span data-line="2">
-</span><span data-line="3"><span class="n">hc</span> <span class="o">=</span> <span class="n">HyperConvo</span><span class="p">()</span>
-</span><span data-line="4"><span class="n">corpus</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
-</span></pre></div>
-</div>
 </div></section>
-<section id="linguistic-diversity">
-<h2>Linguistic Diversity<a class="headerlink" href="#linguistic-diversity" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="linguistic,diversity,development"><p>Compute linguistic diversity of individuals within and across conversations.</p>
+<section id="phrasing-motifs">
+<h2>Phrasing Motifs<a class="headerlink" href="#phrasing-motifs" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="feature extraction, utterance, linguistic, pragmatics"><p>Extracts arc-based phrasing patterns from dependency-parsed utterances by abstracting away content words, capturing common syntactic structures independently of topic. Used as input to the Prompt Types framework.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Voice development, linguistic adaptation, speaker characterization</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/speakerConvoDiversity.html">speakerConvoDiversity</a></p></li>
-<li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Finding_your_voice__linguistic_development.html">Finding Your Voice</a></p></li>
-<li><p><strong>Tags:</strong> linguistic, diversity, development</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/phrasingMotifs.html">PhrasingMotifs</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Asking_too_much.html">Asking Too Much?</a></p></li>
+<li><p><strong>Tags:</strong> feature extraction, utterance, linguistic, pragmatics</p></li>
 </ul>
-<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/speaker-convo-attributes/speaker-convo-diversity-demo.ipynb">Diversity on ChangeMyView</a></p>
 </div></section>
-<section id="craft-conversational-forecasting">
-<h2>CRAFT: Conversational Forecasting<a class="headerlink" href="#craft-conversational-forecasting" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="prediction,neural,forecasting"><p>Neural model for forecasting future conversation outcomes (e.g., derailment into personal attacks) as they develop.</p>
+<section id="politeness-strategies">
+<h2>Politeness Strategies<a class="headerlink" href="#politeness-strategies" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, statistical, conversation, linguistic, social, politeness, pragmatics"><p>Detects lexical and parse-based politeness and impoliteness strategies in utterances based on the Brown and Levinson politeness framework, producing binary feature vectors over a set of validated linguistic markers.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Real-time moderation, derailment prediction, outcome forecasting</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/forecaster.html">forecaster</a></p></li>
-<li><p><strong>Research:</strong> <a class="reference external" href="https://arxiv.org/abs/1909.01362">Trouble on the Horizon</a></p></li>
-<li><p><strong>Tags:</strong> prediction, neural, machine-learning</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/politenessStrategies.html">PolitenessStrategies</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Politeness.html">A Computational Approach to Politeness</a></p></li>
+<li><p><strong>Tags:</strong> measurement, statistical, conversation, linguistic, social, politeness, pragmatics</p></li>
 </ul>
-<p><strong>Interactive notebooks:</strong></p>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/politeness-strategies/Politeness_Marker_and_Summarize_Demo.ipynb">Extracting Politeness Features and Markers</a></p>
+</div></section>
+<section id="prompt-types">
+<h2>Prompt Types<a class="headerlink" href="#prompt-types" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="feature extraction, vectorization, utterance, context, pragmatics"><p>Infers latent types of conversational prompts based on how they are phrased, using SVD-based embeddings of phrasing motifs relative to their response contexts. Assigns each utterance a prompt type and vector representation.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://colab.research.google.com/drive/1SH4iMEHdoH4IovN-b9QOSK4kG4DhAwmb">Full version (fine-tuning + inference)</a></p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/drive/1GvICZN0VwZQSWw3pJaEVY-EQGoO-L5lH">Inference-only</a></p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/promptTypes.html">PromptTypes</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Asking_too_much.html">Asking Too Much?</a></p></li>
+<li><p><strong>Tags:</strong> feature extraction, vectorization, utterance, context, pragmatics</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/prompt-types/prompt-type-wrapper-demo.ipynb">Prompt Type Wrapper</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/prompt-types/prompt-type-demo.ipynb">Phrasing and rhetorical intent</a></p></li>
+</ul>
+</div></section>
+<section id="expected-conversational-context-framework">
+<h2>Expected Conversational Context Framework<a class="headerlink" href="#expected-conversational-context-framework" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="structural, modeling, utterance, exchange, linguistic, context"><p>Derives representations of utterances and terms based on their expected conversational context — the replies they tend to elicit or the utterances they tend to appear near. Supports both forward and backward context modeling.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/expected_context_model.html">ExpectedContextModel</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://tisjune.github.io/research/dissertation">Expected Context Framework</a></p></li>
+<li><p><strong>Tags:</strong> structural, modeling, utterance, exchange, linguistic, context</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/parliament_demo.ipynb">Question types in British Parliament</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/switchboard_exploration_demo.ipynb">Switchboard Corpus</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/expected_context_framework/demos/wiki_awry_demo.ipynb">Wikipedia discussions</a></p></li>
 </ul>
 </div></section>
 <section id="redirection-and-utterance-likelihood">
 <h2>Redirection and Utterance Likelihood<a class="headerlink" href="#redirection-and-utterance-likelihood" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="structural,modeling,flow"><p>Measure the extent to which utterances redirect conversational flow and compute utterance log-likelihoods given context.</p>
+<div class="feature-card" data-tags="structural, modeling, utterance, exchange, conversation-flow, detection, LLM, simulation"><p>Measures the extent to which an utterance redirects conversational flow away from its context, and computes utterance log-likelihoods given surrounding context using a language model.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Topic shift detection, conversational control, response predictability</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/redirectionAndUtteranceLikelihood.html">redirectionAndUtteranceLikelihood</a></p></li>
-<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Redirection_in_Therapy.html">Conversational Redirection</a></p></li>
-<li><p><strong>Tags:</strong> structural, modeling, conversational-flow</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/redirectionAndUtteranceLikelihood.html">Redirection and UtteranceLikelihood</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://www.cs.cornell.edu/~cristian/Redirection_in_Therapy.html">Conversational Redirection in Therapy</a></p></li>
+<li><p><strong>Tags:</strong> structural, modeling, utterance, exchange, conversation-flow, detection, LLM, simulation</p></li>
 </ul>
 <p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/redirection/redirectionDemo.ipynb">Redirection in Supreme Court</a></p>
 </div></section>
 <section id="pivotal-moment-measure">
 <h2>Pivotal Moment Measure<a class="headerlink" href="#pivotal-moment-measure" title="Link to this heading"></a></h2>
-<div class="feature-card" data-tags="structural,prediction,critical-points"><p>Identify pivotal moments in conversations where outcomes may change.</p>
+<div class="feature-card" data-tags="prediction, modeling, conversation, turning-points, simulation"><p>Identifies pivotal moments in a conversation where simulated alternative responses would most change the predicted outcome. Combines a simulator model and a forecaster model to score each conversational position.</p>
 <ul class="simple">
-<li><p><strong>Use cases:</strong> Critical moment detection, trajectory analysis, intervention timing</p></li>
-<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/pivotal.html">pivotal</a></p></li>
-<li><p><strong>Tags:</strong> structural, prediction, turning-points</p></li>
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/pivotal.html">PivotalMomentMeasure</a></p></li>
+<li><p><strong>Tags:</strong> prediction, modeling, conversation, turning-points, simulation</p></li>
 </ul>
-<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/pivotal_framework/pivotal_demo.ipynb">Pivotal moments in conflicts</a></p>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/pivotal_framework/pivotal_demo.ipynb">Pivotal moments in conversations gone awry</a></p>
+</div></section>
+<section id="llm-prompt-transformer">
+<h2>LLM Prompt Transformer<a class="headerlink" href="#llm-prompt-transformer" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="feature extraction, utterance, conversation, speaker, corpus, pragmatics"><p>Applies custom LLM prompts to corpus objects at any level — utterances, conversations, speakers, or the entire corpus — and stores responses as metadata. Supports multiple LLM providers including OpenAI GPT, Google Gemini, and local models.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/llmprompttransformer.html">LLMPromptTransformer</a></p></li>
+<li><p><strong>Tags:</strong> feature extraction, utterance, conversation, speaker, corpus, pragmatics</p></li>
+<li><p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/genai/example/example.ipynb">GenAI module</a></p></li>
+</ul>
+</div></section>
+<section id="classifier">
+<h2>Classifier<a class="headerlink" href="#classifier" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="classification, modeling, utterance, conversation, speaker, labeling"><p>Trains and applies a classifier on corpus object metadata features. Uses an sklearn-compatible classifier and exposes evaluation utilities including cross-validation and train-test split scoring.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/classifier.html">Classifier</a></p></li>
+<li><p><strong>Tags:</strong> classification, modeling, utterance, conversation, speaker, labeling</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/politeness-strategies/politeness_demo.ipynb">Politeness</a></p>
+</div></section>
+<section id="vector-classifier">
+<h2>Vector Classifier<a class="headerlink" href="#vector-classifier" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="classification, modeling, vectorization, utterance, conversation, speaker, labeling"><p>Trains and applies a classifier on corpus object vector representations (e.g. bag-of-words, TF-IDF). Inherits from Classifier. Requires a ConvoKitMatrix with the specified vector name to be present on the corpus.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/vectorClassifier.html">VectorClassifier</a></p></li>
+<li><p><strong>Tags:</strong> classification, modeling, vectorization, utterance, conversation, speaker, labeling</p></li>
+<li><p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/vectors/bag-of-words-demo.ipynb">Bag-of-Words classification</a></p></li>
+</ul>
+</div></section>
+<section id="linguistic-coordination">
+<h2>Linguistic Coordination<a class="headerlink" href="#linguistic-coordination" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, statistical, conversation, linguistic, power, influence"><p>Measures the propensity of a speaker to echo the function words used by another speaker in a conversation, serving as a proxy for linguistic coordination and relative power dynamics between individuals or groups.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/coordination.html">Coordination</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Echoes_of_power.html">Echoes of Power</a></p></li>
+<li><p><strong>Tags:</strong> measurement, statistical, conversation, linguistic, power, influence</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/coordination/examples.ipynb">Power balance in U.S. Supreme Court</a></p>
+</div></section>
+<section id="fighting-words">
+<h2>Fighting Words<a class="headerlink" href="#fighting-words" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, statistical, utterance, conversation, speaker, power, influence, social, pattern, comparison"><p>Identifies the n-gram features that most distinguish two groups of corpus objects, using Monroe et al.’s Dirichlet-multinomial method. Annotates objects with the top fighting words of each class.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/fightingwords.html">FightingWords</a></p></li>
+<li><p><strong>Tags:</strong> measurement, statistical, utterance, conversation, speaker, power, influence, social, pattern, comparison</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/fighting_words/demos/fightingwords_demo.ipynb">r/atheism vs r/Christianity</a></p></li>
+</ul>
+</div></section>
+<section id="forecaster">
+<h2>Forecaster<a class="headerlink" href="#forecaster" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="prediction, machine learning, neural, utterance, forecasting, LLM"><p>A framework for forecasting future conversation outcomes as they develop in real time. Wraps any ForecasterModel (e.g. CRAFT, BERT-based models) and feeds a chronological stream of context tuples to enable per-utterance prediction.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/forecaster.html">Forecaster</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://arxiv.org/abs/1909.01362">Trouble on the Horizon</a></p></li>
+<li><p><strong>Tags:</strong> prediction, machine learning, neural, utterance, forecasting, LLM</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/forecaster/CRAFT%20Forecaster%20demo.ipynb">CRAFT on CGA</a></p></li>
+</ul>
+</div></section>
+<section id="thread-embedder">
+<h2>Thread Embedder<a class="headerlink" href="#thread-embedder" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, feature extraction, statistical, corpus, pattern"><p>Embeds thread-level hypergraph statistics from HyperConvo into a low-dimensional space using SVD or other dimensionality reduction. Useful for visualizing and comparing thread structure across a corpus.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/threadEmbedder.html">ThreadEmbedder</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Patterns_of_participant_interactions.html">Patterns of Participant Interactions</a></p></li>
+<li><p><strong>Tags:</strong> measurement, feature extraction, statistical, corpus, pattern</p></li>
+</ul>
+</div></section>
+<section id="community-embedder">
+<h2>Community Embedder<a class="headerlink" href="#community-embedder" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, feature extraction, statistical, corpus, pattern"><p>Embeds community-level hypergraph statistics from HyperConvo into a low-dimensional space, enabling comparison and visualization of structural differences across communities or subreddits.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/communityEmbedder.html">CommunityEmbedder</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Patterns_of_participant_interactions.html">Patterns of Participant Interactions</a></p></li>
+<li><p><strong>Tags:</strong> measurement, feature extraction, statistical, corpus, pattern</p></li>
+</ul>
+</div></section>
+<section id="pairer">
+<h2>Pairer<a class="headerlink" href="#pairer" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="pre-processing, prediction, statistical, utterance, conversation, speaker, representation, pattern"><p>Annotates corpus objects with pairing information needed for paired prediction analyses. Controls for conversational context by pairing objects from the same conversation, enabling comparisons that isolate the variable of interest.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/pairer.html">Pairer</a></p></li>
+<li><p><strong>Tags:</strong> pre-processing, prediction, statistical, utterance, conversation, speaker, representation, pattern</p></li>
+</ul>
+</div></section>
+<section id="paired-prediction">
+<h2>Paired Prediction<a class="headerlink" href="#paired-prediction" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="prediction, classification, machine learning, corpus, detection"><p>A quasi-experimental prediction method that controls for confounding priors by comparing matched pairs of corpus objects from the same conversation, enabling more rigorous causal inference.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/pairedprediction.html">PairedPrediction</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://arxiv.org/abs/1504.00680">Antisocial Behavior in Online Discussion Communities</a></p></li>
+<li><p><strong>Tags:</strong> prediction, classification, machine learning, corpus, detection</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/hyperconvo/predictive_tasks.ipynb">Predicting conversation growth on Reddit</a></p>
+</div></section>
+<section id="ranker">
+<h2>Ranker<a class="headerlink" href="#ranker" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="sorting, statistical, utterance, conversation, speaker, representation"><p>Sorts and annotates corpus objects with rankings based on a user-defined scoring function. Supports ranking of utterances, speakers, or conversations by any derived or metadata feature.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/ranker.html">Ranker</a></p></li>
+<li><p><strong>Tags:</strong> sorting, statistical, utterance, conversation, speaker, representation</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/convokit/ranker/demos/ranker_demo.ipynb">Ranking users in r/Cornell by comment count</a></p>
+</div></section>
+<section id="linguistic-diversity">
+<h2>Linguistic Diversity<a class="headerlink" href="#linguistic-diversity" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, statistical, speaker, corpus, diversity, development"><p>Computes the linguistic divergence between a speaker’s language in each conversation and a reference language model trained on other conversations or speakers, measuring how a speaker’s voice develops over time.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/speakerConvoDiversity.html">SpeakerConvoDiversity</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Finding_your_voice__linguistic_development.html">Finding Your Voice</a></p></li>
+<li><p><strong>Tags:</strong> measurement, statistical, speaker, corpus, diversity, development</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/speaker-convo-attributes/speaker-convo-diversity-demo.ipynb">Linguistic diversity on ChangeMyView</a></p>
+</div></section>
+<section id="summary-of-conversation-dynamics-scd">
+<h2>Summary of Conversation Dynamics (SCD)<a class="headerlink" href="#summary-of-conversation-dynamics-scd" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, feature extraction, LLM, corpus, pattern, conversation-flow, context"><p>Generates structured natural-language summaries of conversational dynamics using the LLM Prompt Transformer. Summaries describe how interactions unfold over time, capturing turn-by-turn shifts in tone, topic, and social dynamics.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/scd.html">SCD</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://aclanthology.org/2024.naacl-long.414/">How Did We Get Here? Summarizing Conversation Dynamics</a></p></li>
+<li><p><strong>Tags:</strong> measurement, feature extraction, LLM, corpus, pattern, conversation-flow, context</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://github.com/CornellNLP/ConvoKit/blob/master/examples/conversations-gone-awry-cmv/scd-example.ipynb">SCD on conversations gone awry</a></p>
+</div></section>
+<section id="conversation-dynamics-similarity-condyns">
+<h2>Conversation Dynamics Similarity (ConDynS)<a class="headerlink" href="#conversation-dynamics-similarity-condyns" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, feature extraction, LLM, corpus, pattern, conversation-flow, context, comparison"><p>Measures the similarity between two conversations with respect to their conversational dynamics using SCD-based representations and sequence alignment. Enables topic-independent comparison of how conversations unfold.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/condyns.html">ConvoDynamicsSimilarity</a></p></li>
+<li><p><strong>Research:</strong> <a class="reference external" href="https://arxiv.org/abs/2507.18956">A Similarity Measure for Comparing Conversational Dynamics</a></p></li>
+<li><p><strong>Tags:</strong> measurement, feature extraction, LLM, corpus, pattern, conversation-flow, context, comparison</p></li>
+</ul>
+</div></section>
+<section id="talk-time-sharing-dynamics">
+<h2>Talk-Time Sharing Dynamics<a class="headerlink" href="#talk-time-sharing-dynamics" title="Link to this heading"></a></h2>
+<div class="feature-card" data-tags="measurement, feature extraction, statistical, corpus, pattern, conversation-flow, social, comparison"><p>Analyzes how talk-time is distributed and evolves between speakers throughout a conversation, capturing both overall balance and moment-to-moment dynamics in participation patterns.</p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://convokit.cornell.edu/documentation/talktimesharing.html">TalkTimeSharingDynamics</a></p></li>
+<li><p><strong>Tags:</strong> measurement, feature extraction, statistical, corpus, pattern, conversation-flow, social, comparison</p></li>
+</ul>
 </div>
 
 </div></section>
@@ -282,5 +435,5 @@ data-aria-dark="Switch to auto color mode">
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/shibuya.js?v=c1cf1a6b"></script>
-      <script src="_static/custom.js?v=5bb34110"></script></body>
+      <script src="_static/custom.js?v=53d300e3"></script></body>
 </html>
