@@ -8,7 +8,7 @@
   </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=e1a1ceaf" />
     <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=14737038" />
     <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=663271cc" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=bd6e100a" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -103,128 +103,41 @@ data-aria-dark="Switch to auto color mode">
         <article class="yue" role="main">
           <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
-<p>ConvoKit requires Python 3.10 or higher.</p>
 <section id="quick-install">
 <h2>Quick Install<a class="headerlink" href="#quick-install" title="Link to this heading"></a></h2>
+<p>This toolkit requires Python &gt;= 3.10.</p>
 <p>The fastest way to get started:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">pip<span class="w"> </span>install<span class="w"> </span>convokit
-</span><span data-line="2">python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_sm
-</span><span data-line="3">python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import nltk; nltk.download(&#39;punkt&#39;)&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">pip3<span class="w"> </span>install<span class="w"> </span>convokit
 </span></pre></div>
 </div>
-<p>That’s it! You’re ready to use ConvoKit.</p>
-</section>
-<section id="detailed-instructions">
-<h2>Detailed Instructions<a class="headerlink" href="#detailed-instructions" title="Link to this heading"></a></h2>
-<section id="step-1-install-convokit">
-<h3>Step 1: Install ConvoKit<a class="headerlink" href="#step-1-install-convokit" title="Link to this heading"></a></h3>
-<p>Using pip (recommended):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">pip<span class="w"> </span>install<span class="w"> </span>convokit
-</span></pre></div>
-</div>
-<p>From source:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CornellNLP/ConvoKit.git
-</span><span data-line="2"><span class="nb">cd</span><span class="w"> </span>ConvoKit
-</span><span data-line="3">pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
-</span></pre></div>
-</div>
-</section>
-<section id="step-2-install-spacy-model">
-<h3>Step 2: Install Spacy Model<a class="headerlink" href="#step-2-install-spacy-model" title="Link to this heading"></a></h3>
-<p>ConvoKit uses Spacy for linguistic analysis:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_sm
-</span></pre></div>
-</div>
-<p>For better performance with larger texts, you can install the larger model:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_lg
-</span></pre></div>
-</div>
-</section>
-<section id="step-3-install-nltk-data">
-<h3>Step 3: Install NLTK Data<a class="headerlink" href="#step-3-install-nltk-data" title="Link to this heading"></a></h3>
-<p>Download required NLTK datasets:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import nltk; nltk.download(&#39;punkt&#39;)&quot;</span>
-</span></pre></div>
-</div>
-<p>Or from within Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
-</span><span data-line="2"><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
-</span><span data-line="3"><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>  <span class="c1"># For newer NLTK versions</span>
-</span></pre></div>
-</div>
-</section>
+<p>That’s it! You’re ready to use ConvoKit. Alternatively, visit our <a class="reference external" href="https://github.com/CornellNLP/ConvoKit">Github Page</a> to install from source.</p>
 </section>
 <section id="optional-dependencies">
 <h2>Optional Dependencies<a class="headerlink" href="#optional-dependencies" title="Link to this heading"></a></h2>
-<p>For specific features, you may need additional packages:</p>
-<section id="for-neural-models-craft">
-<h3>For neural models (CRAFT):<a class="headerlink" href="#for-neural-models-craft" title="Link to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>transformers
-</span></pre></div>
-</div>
-</section>
-<section id="for-visualization">
-<h3>For visualization:<a class="headerlink" href="#for-visualization" title="Link to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>seaborn<span class="w"> </span>networkx
-</span></pre></div>
-</div>
-</section>
+<p>For specific features, you may need additional packages. ConvoKit relies on NLTK and SpaCy to implement certain NLP functions. If you have not already previously used these packages, they require additional first time setup:</p>
+<p>For NLTK, download the punkt tokenizer: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">nltk;</span> <span class="pre">nltk.download('punkt')</span></code> (in a python interactive session)</p>
+<p>For SpaCy, download the default English model: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">spacy</span> <span class="pre">download</span> <span class="pre">en_core_web_sm</span></code></p>
 </section>
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
-<section id="common-issues">
-<h3>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h3>
-<p><strong>Import errors after installation</strong></p>
-<p>If you encounter import errors, ensure you’re using Python 3.10+:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">python<span class="w"> </span>--version
-</span></pre></div>
-</div>
-<p><strong>Spacy model not found</strong></p>
-<p>Make sure you’ve downloaded the Spacy model:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_sm
-</span></pre></div>
-</div>
-<p><strong>NLTK data not found</strong></p>
-<p>Download punkt tokenizer:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
-</span><span data-line="2"><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
-</span></pre></div>
-</div>
-<p><strong>Memory issues with large datasets</strong></p>
-<p>For large datasets, consider:</p>
-<ol class="arabic simple">
-<li><p>Processing in batches</p></li>
-<li><p>Using a machine with more RAM</p></li>
-<li><p>Using the dataset-specific optimized versions</p></li>
-</ol>
-<p>For more troubleshooting help, see our <a class="reference external" href="https://convokit.cornell.edu/documentation/troubleshooting.html">Troubleshooting Guide</a> or ask in our <a class="reference external" href="https://discord.gg/WMFqMWgz6P">Discord community</a>.</p>
+<p>If you encounter difficulties with installation, check out our <a class="reference external" href="https://convokit.cornell.edu/documentation/troubleshooting.html">Troubleshooting Guide</a> or ask in our <a class="reference external" href="https://discord.gg/WMFqMWgz6P">Discord community</a>.</p>
 </section>
-</section>
-<section id="verifying-installation">
-<h2>Verifying Installation<a class="headerlink" href="#verifying-installation" title="Link to this heading"></a></h2>
-<p>Test your installation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">convokit</span>
-</span><span data-line="2"><span class="nb">print</span><span class="p">(</span><span class="n">convokit</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</span><span data-line="3">
-</span><span data-line="4"><span class="c1"># Try loading a small corpus</span>
-</span><span data-line="5"><span class="n">corpus</span> <span class="o">=</span> <span class="n">convokit</span><span class="o">.</span><span class="n">Corpus</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">convokit</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;friends-corpus&quot;</span><span class="p">))</span>
-</span><span data-line="6"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">corpus</span><span class="o">.</span><span class="n">iter_utterances</span><span class="p">()))</span><span class="si">}</span><span class="s2"> utterances&quot;</span><span class="p">)</span>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Corpus</span><span class="p">,</span> <span class="n">download</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="c1"># Load a dataset</span>
+</span><span data-line="4"><span class="n">corpus</span> <span class="o">=</span> <span class="n">Corpus</span><span class="p">(</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;conversations-gone-awry-corpus&#39;</span><span class="p">))</span>
+</span><span data-line="5">
+</span><span data-line="6"><span class="c1"># print corpus summary stats</span>
+</span><span data-line="7"><span class="n">corpus</span><span class="o">.</span><span class="n">print_summary_stats</span><span class="p">()</span>
+</span><span data-line="8">
+</span><span data-line="9"><span class="c1"># Example: extract politeness features</span>
+</span><span data-line="10"><span class="kn">from</span><span class="w"> </span><span class="nn">convokit</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolitenessStrategies</span>
+</span><span data-line="11"><span class="n">ps</span> <span class="o">=</span> <span class="n">PolitenessStrategies</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</span><span data-line="12"><span class="n">corpus</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>If this runs without errors, you’re all set!</p>
-</section>
-<section id="development-installation">
-<h2>Development Installation<a class="headerlink" href="#development-installation" title="Link to this heading"></a></h2>
-<p>If you plan to contribute to ConvoKit:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CornellNLP/ConvoKit.git
-</span><span data-line="2"><span class="nb">cd</span><span class="w"> </span>ConvoKit
-</span><span data-line="3">pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
-</span><span data-line="4">
-</span><span data-line="5"><span class="c1"># Install pre-commit hooks</span>
-</span><span data-line="6">pre-commit<span class="w"> </span>install
-</span></pre></div>
-</div>
-<p>This installs ConvoKit in editable mode with development dependencies.</p>
 </section>
 <section id="next-steps">
 <h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
@@ -282,5 +195,5 @@ data-aria-dark="Switch to auto color mode">
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/shibuya.js?v=c1cf1a6b"></script>
-      <script src="_static/custom.js?v=5bb34110"></script></body>
+      <script src="_static/custom.js?v=53d300e3"></script></body>
 </html>

@@ -1,7 +1,7 @@
 Features & APIs
 ===============
 
-ConvoKit provides a comprehensive set of analysis tools for extracting conversational features and studying social phenomena. All features follow a scikit-learn-inspired interface.
+ConvoKit provides a comprehensive set of analysis tools for extracting conversational features and studying social phenomena.
 
 .. raw:: html
 
@@ -150,6 +150,8 @@ Extracts arc-based phrasing patterns from dependency-parsed utterances by abstra
 * **Research:** `Asking Too Much? <https://www.cs.cornell.edu/~cristian/Asking_too_much.html>`_
 * **Tags:** feature extraction, utterance, linguistic, pragmatics
 
+**Example:** `Phrasing motifs in prompt type models <https://github.com/CornellNLP/ConvoKit/blob/master/examples/prompt-types/prompt-type-demo.ipynb>`_
+
 .. raw:: html
 
    </div>
@@ -167,7 +169,7 @@ Detects lexical and parse-based politeness and impoliteness strategies in uttera
 * **Research:** `A Computational Approach to Politeness <https://www.cs.cornell.edu/~cristian/Politeness.html>`_
 * **Tags:** measurement, statistical, conversation, linguistic, social, politeness, pragmatics
 
-**Example:** `Extracting Politeness Features and Markers <https://github.com/CornellNLP/ConvoKit/blob/master/examples/politeness-strategies/Politeness_Marker_and_Summarize_Demo.ipynb>`_
+**Example:** `Extracting politeness features and markers <https://github.com/CornellNLP/ConvoKit/blob/master/examples/politeness-strategies/Politeness_Marker_and_Summarize_Demo.ipynb>`_
 
 .. raw:: html
 
@@ -267,7 +269,7 @@ Applies custom LLM prompts to corpus objects at any level — utterances, conver
 * **API:** `LLMPromptTransformer <https://convokit.cornell.edu/documentation/llmprompttransformer.html>`_
 * **Tags:** feature extraction, utterance, conversation, speaker, corpus, pragmatics
 
-* **Example:** `GenAI module <https://github.com/CornellNLP/ConvoKit/blob/master/convokit/genai/example/example.ipynb>`_
+**Example:** `GenAI module <https://github.com/CornellNLP/ConvoKit/blob/master/convokit/genai/example/example.ipynb>`_
 
 .. raw:: html
 
@@ -303,7 +305,7 @@ Trains and applies a classifier on corpus object vector representations (e.g. ba
 * **API:** `VectorClassifier <https://convokit.cornell.edu/documentation/vectorClassifier.html>`_
 * **Tags:** classification, modeling, vectorization, utterance, conversation, speaker, labeling
 
-* **Example:** `Bag-of-Words classification <https://github.com/CornellNLP/ConvoKit/blob/master/examples/vectors/bag-of-words-demo.ipynb>`_
+**Example:** `Bag-of-Words classification <https://github.com/CornellNLP/ConvoKit/blob/master/examples/vectors/bag-of-words-demo.ipynb>`_
 
 .. raw:: html
 
@@ -340,9 +342,7 @@ Identifies the n-gram features that most distinguish two groups of corpus object
 * **API:** `FightingWords <https://convokit.cornell.edu/documentation/fightingwords.html>`_
 * **Tags:** measurement, statistical, utterance, conversation, speaker, power, influence, social, pattern, comparison
 
-**Examples:**
-
-* `r/atheism vs r/Christianity <https://github.com/CornellNLP/ConvoKit/blob/master/convokit/fighting_words/demos/fightingwords_demo.ipynb>`_
+**Examples:** `r/atheism vs r/Christianity <https://github.com/CornellNLP/ConvoKit/blob/master/convokit/fighting_words/demos/fightingwords_demo.ipynb>`_
 
 .. raw:: html
 
@@ -361,9 +361,7 @@ A framework for forecasting future conversation outcomes as they develop in real
 * **Research:** `Trouble on the Horizon <https://arxiv.org/abs/1909.01362>`_
 * **Tags:** prediction, machine learning, neural, utterance, forecasting, LLM
 
-**Example:**
-
-* `CRAFT on CGA <https://github.com/CornellNLP/ConvoKit/blob/master/examples/forecaster/CRAFT%20Forecaster%20demo.ipynb>`_
+**Example:** `CRAFT on CGA <https://github.com/CornellNLP/ConvoKit/blob/master/examples/forecaster/CRAFT%20Forecaster%20demo.ipynb>`_
 
 .. raw:: html
 
@@ -522,6 +520,8 @@ Analyzes how talk-time is distributed and evolves between speakers throughout a 
 
 * **API:** `TalkTimeSharingDynamics <https://convokit.cornell.edu/documentation/talktimesharing.html>`_
 * **Tags:** measurement, feature extraction, statistical, corpus, pattern, conversation-flow, social, comparison
+
+**Example:** `Talk-time in CANDOR and Supreme Court <https://github.com/CornellNLP/ConvoKit/blob/master/convokit/talktimesharing/talktimesharing_example.ipynb>`_
 
 .. raw:: html
 
