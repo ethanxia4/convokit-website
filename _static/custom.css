@@ -1183,3 +1183,27 @@ body:not(.convokit-dark) .header-inner {
     color: #6446d4 !important;
     background: rgba(0, 0, 0, 0.08) !important;
 }
+
+.sy-head .searchbox input[type="text"] {
+    color: #2c2c2c !important;
+    background: rgba(0, 0, 0, 0.06) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.sy-head .searchbox input[type="text"]::placeholder {
+    color: #555555 !important;
+    opacity: 1 !important;
+}
+
+.sy-head .searchbox input[type="text"]:focus {
+    background: #555555 !important;
+    border-color: #aa0000 !important;
+    outline: none !important;
+}
+
+/* The "/" kbd shortcut hint */
+.sy-head .searchbox kbd {
+    color: #2c2c2c !important;
+    background: #e4e4e4 !important;
+    border-color: #2c2c2c !important;
+}

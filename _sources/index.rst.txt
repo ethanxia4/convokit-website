@@ -1,5 +1,5 @@
-ConvoKit: Conversational Analysis Toolkit
-====================================
+ConvoKit: Conversational Analysis Toolkitt
+=========================================
 
 .. image:: https://img.shields.io/pypi/v/convokit.svg
    :target: https://pypi.org/pypi/convokit/
@@ -28,7 +28,7 @@ Quick Links
 * `Discord Community <https://discord.gg/WMFqMWgz6P>`_
 
 Documentation
------------
+-------------
 
 Documentation is hosted `here <https://convokit.cornell.edu/documentation/>`_. 
 
