@@ -1,4 +1,4 @@
-ConvoKit: Conversational Analysis Toolkitt
+ConvoKit: Conversational Analysis Toolkit
 =========================================
 
 .. image:: https://img.shields.io/pypi/v/convokit.svg
