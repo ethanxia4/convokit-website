@@ -1168,10 +1168,6 @@ body:not(.convokit-dark) .header-inner {
 .sy-lside-inner {
     top: 80px !important;
 }
-/* ─── Theme toggle button — always dark so it's visible on the light header ──
-   The .js-theme button turns white in dark mode; pin it to a dark color
-   regardless of the current theme.
-   ─────────────────────────────────────────────────────────────────────────── */
 
 .sy-head .js-theme,
 .sy-head .theme-switch {
@@ -1201,7 +1197,7 @@ body:not(.convokit-dark) .header-inner {
     outline: none !important;
 }
 
-/* The "/" kbd shortcut hint */
+/* The "/" */
 .sy-head .searchbox kbd {
     color: #2c2c2c !important;
     background: #e4e4e4 !important;
